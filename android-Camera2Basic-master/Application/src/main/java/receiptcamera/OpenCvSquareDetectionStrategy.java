@@ -1,13 +1,17 @@
 package receiptcamera;
 
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.util.Log;
+
+import com.example.android.camera2basic.Camera2BasicFragment;
 
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.Rect;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
@@ -16,6 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static org.opencv.core.CvType.CV_8UC4;
 import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
 
@@ -25,81 +30,110 @@ import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
 
 public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
 
-    public List<MatOfPoint> processCurrentFrame(Mat grey) {
+    Mat blurMat;
+    Mat cannyMat;
+    Mat thresholdMat;
+    Mat hierarchy;
+    Mat greyMat;
+    Mat rgbMat;
+    Mat croppedMat;
+
+
+    public  List<MatOfPoint> processCurrentFrame(Mat grey) {
         List<MatOfPoint> result = null;
         if (grey != null) {
 
-            Mat blurMat = new Mat();
-            // Imgproc.cvtColor(image, grayMat, CV_BGR2GRAY);
-            Imgproc.GaussianBlur(grey, blurMat, new Size(5, 5), 0);
+            float areaOfPicture = grey.rows() * grey.cols();
 
-            Mat cannyMat = new Mat();
-            Imgproc.Canny(blurMat, cannyMat, 0, 5);
+            blurMat = new Mat();
+            Imgproc.GaussianBlur(grey, blurMat, new org.opencv.core.Size(5, 5), 0);
 
-            Mat thresholdMat = new Mat();
+            cannyMat = new Mat();
+            Imgproc.Canny(blurMat, cannyMat, 0, 3);
+
+            thresholdMat = new Mat();
             Imgproc.threshold(cannyMat, thresholdMat, 0, 255, 8);
             List<MatOfPoint> contours = new ArrayList<>();
 
-            Mat hierarchy = new Mat();
+            hierarchy = new Mat();
             Imgproc.findContours(thresholdMat, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_NONE);
-
 
             Collections.sort(contours, new AreaComparator());
 
-            if (contours.size() > 0) {
+            if (contours.size() > 0 && Math.abs(Imgproc.contourArea(contours.get(0))) /areaOfPicture > 0.3 ) {
                 MatOfPoint contour = contours.get(0);
                 double arc = Imgproc.arcLength(new MatOfPoint2f(contour.toArray()), true);
                 MatOfPoint2f outDP = new MatOfPoint2f();
                 Imgproc.approxPolyDP(new MatOfPoint2f(contour.toArray()), outDP, 0.02 * arc, true);
-                //Rect rect = Imgproc.boundingRect(m);
-
-                //Imgproc.rectangle(mRgba, rect.br(), rect.tl(), new Scalar( 0, 255, 0 ),7);
-
-
-                //rect.
-
-
                 if (outDP.toList().size() == 4) {
                     result = new ArrayList<>();
-                    result.add(new MatOfPoint(outDP.toArray()));
+                    org.opencv.core.Point[] points = outDP.toArray();
+                    //Arrays.sort( points , new PointXCoordinateComparator());
+                    //Arrays.sort( points , new PointYCoordinateComparator());
+                    result.add(new MatOfPoint(points));
+                    //Imgproc.drawContours(grey, result, 0, new Scalar(0, 255, 0), 7);
                     Log.i("Preview", String.format("p0: %s, p1: %s, p2: %s, p3: %s", outDP.toList().get(0).toString(), outDP.toList().get(1).toString(), outDP.toList().get(2).toString(), outDP.toList().get(3).toString()));
                 }
-               /*
-                Point p1 = lst.get(0).toList().get(0);
-                Point p2 = lst.get(0).toList().get(0);
-                Point p3 = lst.get(0).toList().get(0);
-                Point p4 = lst.get(0).toList().get(0);
-                Point secondRectanglePoint = p2;
-                double distance = Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2));
-
-                if(Math.sqrt(Math.pow((p1.x-p3.x),2) + Math.pow((p1.y-p3.y),2)) > distance){
-                    distance = Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2));
-                    secondRectanglePoint = p3;
-                }
-
-                if(Math.sqrt(Math.pow((p1.x-p4.x),2) + Math.pow((p1.y-p4.y),2)) > distance){
-                    distance = Math.sqrt(Math.pow((p1.x-p4.x),2) + Math.pow((p1.y-p4.y),2));
-                    secondRectanglePoint = p4;
-                }
-
-                Rect rect = new Rect(p1, secondRectanglePoint);
-
-
-                Mat croppedRef = new Mat(mRgba, rect);
-               */
-
-
             }
-            /*mRgba.release();
-            blurMat.release();
-            cannyMat.release();
-            thresholdMat.release();
-            hierarchy.release();*/
         }
         return result;
-            //Imgproc.drawContours(mRgba, lst, 0, new Scalar(0, 255, 0), 7);
-            //Log.i("opencv", String.format("Number of points :%d", lst.get(0).toList().size()));
+    }
 
+    public Bitmap cropSquare(Bitmap bmp){
+
+        rgbMat = new Mat();
+        rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
+        Utils.bitmapToMat(bmp, rgbMat);
+        Mat grayMat = new Mat();
+        Imgproc.cvtColor(rgbMat, grayMat, 6);
+        List<MatOfPoint> result = processCurrentFrame(grayMat);
+
+        if(result != null){Rect boundRect = Imgproc.boundingRect( result.get(0) );
+            croppedMat = new Mat(rgbMat, boundRect);
+            Bitmap out = Bitmap.createBitmap(croppedMat.cols(), croppedMat.rows(), Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(croppedMat, out);
+            bmp.recycle();
+            return out;
+        }
+        return bmp;
+
+       /* MatOfPoint2f outDP = null;
+        input = new Mat(input, outDP);*/
+    }
+
+
+
+    public List<MatOfPoint> processCurrentFrame(Bitmap bmp){
+        greyMat = new Mat();
+        greyMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
+        Utils.bitmapToMat(bmp, greyMat);
+        Mat grayMat = new Mat();
+        Imgproc.cvtColor(greyMat, grayMat, 6);
+        return processCurrentFrame(grayMat);
+    }
+
+    public void release(){
+        if(rgbMat != null) {
+            rgbMat.release();
+        }
+        if(croppedMat != null){
+            cannyMat.release();
+        }
+        if(greyMat != null) {
+            greyMat.release();
+        }
+        if(blurMat != null) {
+            blurMat.release();
+        }
+        if(cannyMat != null) {
+            cannyMat.release();
+        }
+        if(thresholdMat != null) {
+            thresholdMat.release();
+        }
+        if(hierarchy != null) {
+            hierarchy.release();
+        }
     }
 
     class AreaComparator implements Comparator<MatOfPoint> {

@@ -28,6 +28,12 @@
         android:icon="@drawable/ic_launcher"
         android:theme="@style/MaterialTheme">
 
+
+
+        <activity android:name=".CroppedImageActivity"
+            android:label="@string/app_name">
+        </activity>
+
         <activity android:name=".CameraActivity"
                   android:label="@string/app_name">
             <intent-filter>

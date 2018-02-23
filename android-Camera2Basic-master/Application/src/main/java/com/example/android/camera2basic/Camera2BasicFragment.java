@@ -22,6 +22,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -97,7 +98,7 @@ import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
 
 public class Camera2BasicFragment extends Fragment
-        implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
+        implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback, BackgroundSquareDetector.BackgroundSquareDetectorListener{
 
     /**
      * Conversion from screen rotation to JPEG orientation.
@@ -109,7 +110,7 @@ public class Camera2BasicFragment extends Fragment
     //private ImageView scanImg;
     private QuadrilateralView quadrilateralReceiptView;
 
-    private BackgroundSquareDetector backgroundSquareDetector = new BackgroundSquareDetector(new OpenCvSquareDetectionStrategy());
+    private BackgroundSquareDetector backgroundSquareDetector;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -158,6 +159,22 @@ public class Camera2BasicFragment extends Fragment
      */
     private static final int MAX_PREVIEW_HEIGHT = 1080;
 
+    @Override
+    public void squareDetected(final List<MatOfPoint> result) {
+        quadrilateralReceiptView.post(new Runnable() {
+            @Override
+            public void run() {
+                if(result != null) {
+                    quadrilateralReceiptView.setSquarePoints(result.get(0).toList(), 4);
+                }
+                else{
+                    quadrilateralReceiptView.setSquarePoints(null, 4);
+                }
+            }
+        });
+
+    }
+
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a
      * {@link TextureView}.
@@ -178,30 +195,6 @@ public class Camera2BasicFragment extends Fragment
         }
     }
 
-    class PointXCoordinateComparator implements Comparator<org.opencv.core.Point> {
-        @Override
-        public int compare(org.opencv.core.Point p1, org.opencv.core.Point p2) {
-            if(p1.x  - p2.x > 0){
-                return 1;
-            }else if(p1.x - p2.x < 0){
-                return -1;
-            }else{
-                return 0;
-            }
-        }
-    }
-    class PointYCoordinateComparator implements Comparator<org.opencv.core.Point> {
-        @Override
-        public int compare(org.opencv.core.Point p1, org.opencv.core.Point p2) {
-            if(p1.y  - p2.y > 0){
-                return 1;
-            }else if(p1.y - p2.y < 0){
-                return -1;
-            }else{
-                return 0;
-            }
-        }
-    }
 
     private final TextureView.SurfaceTextureListener mSurfaceTextureListener
             = new TextureView.SurfaceTextureListener() {
@@ -226,21 +219,9 @@ public class Camera2BasicFragment extends Fragment
             int width = mTextureView.getWidth();
             int height = mTextureView.getHeight();
 
-            Bitmap bitmap = getResizedBitmap(mTextureView.getBitmap(width, height),width / 4, height /4 );
+            Bitmap bitmap = getResizedBitmap(mTextureView.getBitmap(width, height),width /4, height /4);
+            backgroundSquareDetector.setCurrentFrame(bitmap);
 
-            Mat mat = new Mat();
-
-            mat.create(bitmap.getHeight(), bitmap.getWidth(), CV_8UC4);
-            Utils.bitmapToMat(bitmap, mat);
-            Mat grayMat = new Mat();
-            Imgproc.cvtColor(mat, grayMat, 6);
-            List<MatOfPoint> output = processCurrentFrame(grayMat);
-            if(output != null) {
-                quadrilateralReceiptView.setSquarePoints(output.get(0).toList(), 4);
-            }
-            else{
-                quadrilateralReceiptView.setSquarePoints(null, 4);
-            }
             //Utils.matToBitmap(output, bitmap);
 
             /*if(result != null) {
@@ -325,7 +306,7 @@ public class Camera2BasicFragment extends Fragment
         }
 
 
-        public  List<MatOfPoint> processCurrentFrame(Mat grey) {
+        /*public  List<MatOfPoint> processCurrentFrame(Mat grey) {
             List<MatOfPoint> result = null;
             if (grey != null) {
 
@@ -366,43 +347,10 @@ public class Camera2BasicFragment extends Fragment
                         Log.i("Preview", String.format("p0: %s, p1: %s, p2: %s, p3: %s", outDP.toList().get(0).toString(), outDP.toList().get(1).toString(), outDP.toList().get(2).toString(), outDP.toList().get(3).toString()));
                     }
                 }
-               /*
-                Point p1 = lst.get(0).toList().get(0);
-                Point p2 = lst.get(0).toList().get(0);
-                Point p3 = lst.get(0).toList().get(0);
-                Point p4 = lst.get(0).toList().get(0);
-                Point secondRectanglePoint = p2;
-                double distance = Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2));
-
-                if(Math.sqrt(Math.pow((p1.x-p3.x),2) + Math.pow((p1.y-p3.y),2)) > distance){
-                    distance = Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2));
-                    secondRectanglePoint = p3;
-                }
-
-                if(Math.sqrt(Math.pow((p1.x-p4.x),2) + Math.pow((p1.y-p4.y),2)) > distance){
-                    distance = Math.sqrt(Math.pow((p1.x-p4.x),2) + Math.pow((p1.y-p4.y),2));
-                    secondRectanglePoint = p4;
-                }
-
-                Rect rect = new Rect(p1, secondRectanglePoint);
-
-
-                Mat croppedRef = new Mat(mRgba, rect);
-               */
-
-
-                //return cannyMat;
-            /*mRgba.release();
-            blurMat.release();
-            cannyMat.release();
-            thresholdMat.release();
-            hierarchy.release();*/
-                //}
-                //Log.i("opencv", String.format("Number of points :%d", lst.get(0).toList().size()));
 
             }
             return result;
-        }
+        }*/
 
 
 
@@ -676,6 +624,7 @@ public class Camera2BasicFragment extends Fragment
                                  Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_camera2_basic, container, false);
             quadrilateralReceiptView = (QuadrilateralView) v.findViewById(R.id.quadrilateralReceiptView);
+            backgroundSquareDetector = new BackgroundSquareDetector(new OpenCvSquareDetectionStrategy(), this);
             return v;
         }
 
@@ -713,6 +662,7 @@ public class Camera2BasicFragment extends Fragment
         @Override
         public void onResume() {
             super.onResume();
+            backgroundSquareDetector.startRunning();
             if (!OpenCVLoader.initDebug()) {
                 Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
                 OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, getContext(), mLoaderCallback);
@@ -736,6 +686,7 @@ public class Camera2BasicFragment extends Fragment
         @Override
         public void onPause() {
             closeCamera();
+            backgroundSquareDetector.stopRunning();
             stopBackgroundThread();
             super.onPause();
         }
@@ -1162,6 +1113,7 @@ public class Camera2BasicFragment extends Fragment
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             }
+
         }
 
         @Override
@@ -1194,7 +1146,7 @@ public class Camera2BasicFragment extends Fragment
         /**
          * Saves a JPEG {@link Image} into the specified {@link File}.
          */
-        private static class ImageSaver implements Runnable {
+        private  class ImageSaver implements Runnable {
 
             /**
              * The JPEG image
@@ -1213,12 +1165,21 @@ public class Camera2BasicFragment extends Fragment
             @Override
             public void run() {
                 ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
+                mImage.getWidth();
+                Intent i = new Intent(getActivity(), CroppedImageActivity.class);
+                i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+                i.putExtra(CroppedImageActivity.IMAGE_WIDTH, mImage.getWidth());
+                i.putExtra(CroppedImageActivity.IMAGE_HEIGHT, mImage.getHeight());
                 byte[] bytes = new byte[buffer.remaining()];
                 buffer.get(bytes);
                 FileOutputStream output = null;
                 try {
-                    output = new FileOutputStream(mFile);
+                    if(mFile.exists()) {
+                        mFile.delete();
+                    }
+                    output = new FileOutputStream(mFile, false);
                     output.write(bytes);
+                    startActivity(i);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {

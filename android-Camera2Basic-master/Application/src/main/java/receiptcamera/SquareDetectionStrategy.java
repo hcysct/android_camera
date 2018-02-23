@@ -14,4 +14,6 @@ import java.util.List;
 
 public interface SquareDetectionStrategy {
     List<MatOfPoint> processCurrentFrame(Mat grey);
+    List<MatOfPoint> processCurrentFrame(Bitmap bmp);
+    void release();
 }

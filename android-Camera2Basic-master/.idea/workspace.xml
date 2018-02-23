@@ -6,8 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="preview" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -37,107 +36,165 @@
       <file leaf-file-name="Camera2BasicFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2235">
-              <caret line="243" column="48" lean-forward="false" selection-start-line="243" selection-start-column="48" selection-end-line="243" selection-end-column="48" />
+            <state relative-caret-position="5817">
+              <caret line="1036" column="0" lean-forward="true" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_camera.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/activity_camera.xml">
+      <file leaf-file-name="CameraActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CameraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/graphics/Canvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23040">
-              <caret line="1615" column="16" lean-forward="false" selection-start-line="1615" selection-start-column="16" selection-end-line="1615" selection-end-column="16" />
+            <state relative-caret-position="90">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/graphics/Point.java">
+      <file leaf-file-name="CroppedImageActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatOfPoint2f.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/MatOfPoint2f.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="56" column="15" lean-forward="false" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatOfPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/MatOfPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_camera2_basic.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="598">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
-                <element signature="e#1315#2298#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoFitTextureView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java">
+      <file leaf-file-name="OpenCvSquareDetectionStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+            <state relative-caret-position="663">
+              <caret line="90" column="27" lean-forward="false" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/res/values/colors.xml">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="1003">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseLoaderCallback.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/BaseLoaderCallback.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#433#434#0" expanded="false" />
+                <element signature="e#473#474#0" expanded="false" />
+                <element signature="e#1517#1518#0" expanded="false" />
+                <element signature="e#1573#1574#0" expanded="false" />
+                <element signature="e#2795#2796#0" expanded="false" />
+                <element signature="e#2851#2852#0" expanded="false" />
+                <element signature="e#3616#3617#0" expanded="false" />
+                <element signature="e#3672#3673#0" expanded="false" />
+                <element signature="e#4555#4556#0" expanded="false" />
+                <element signature="e#4621#4622#0" expanded="false" />
+                <element signature="e#4840#4841#0" expanded="false" />
+                <element signature="e#4905#4906#0" expanded="false" />
+                <element signature="e#5827#5828#0" expanded="false" />
+                <element signature="e#5892#5893#0" expanded="false" />
+                <element signature="e#6011#6012#0" expanded="false" />
+                <element signature="e#6060#6061#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AsyncServiceHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/AsyncServiceHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2658#2659#0" expanded="false" />
+                <element signature="e#2721#2722#0" expanded="false" />
+                <element signature="e#4634#4635#0" expanded="false" />
+                <element signature="e#4697#4698#0" expanded="false" />
+                <element signature="e#5391#5392#0" expanded="false" />
+                <element signature="e#5463#5464#0" expanded="false" />
+                <element signature="e#7537#7538#0" expanded="false" />
+                <element signature="e#7632#7633#0" expanded="false" />
+                <element signature="e#11033#11034#0" expanded="false" />
+                <element signature="e#11128#11129#0" expanded="false" />
+                <element signature="e#16287#16288#0" expanded="false" />
+                <element signature="e#16332#16333#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenCVLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/OpenCVLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1845">
+              <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+              <folding>
+                <element signature="e#2557#2558#0" expanded="false" />
+                <element signature="e#2610#2611#0" expanded="false" />
+                <element signature="e#2966#2967#0" expanded="false" />
+                <element signature="e#3022#3023#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Rect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+              <folding>
+                <element signature="e#278#279#0" expanded="false" />
+                <element signature="e#310#311#0" expanded="false" />
+                <element signature="e#596#597#0" expanded="false" />
+                <element signature="e#669#670#0" expanded="false" />
+                <element signature="e#703#704#0" expanded="false" />
+                <element signature="e#728#729#0" expanded="false" />
+                <element signature="e#1160#1161#0" expanded="false" />
+                <element signature="e#1212#1213#0" expanded="false" />
+                <element signature="e#1237#1238#0" expanded="false" />
+                <element signature="e#1275#1276#0" expanded="false" />
+                <element signature="e#1300#1301#0" expanded="false" />
+                <element signature="e#1355#1356#0" expanded="false" />
+                <element signature="e#1381#1382#0" expanded="false" />
+                <element signature="e#1427#1428#0" expanded="false" />
+                <element signature="e#1455#1456#0" expanded="false" />
+                <element signature="e#1492#1493#0" expanded="false" />
+                <element signature="e#1522#1523#0" expanded="false" />
+                <element signature="e#1570#1571#0" expanded="false" />
+                <element signature="e#2582#2583#0" expanded="false" />
+                <element signature="e#2659#2660#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BackgroundSquareDetector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="53" column="74" lean-forward="false" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1040#1041#0" expanded="false" />
+                <element signature="e#1080#1081#0" expanded="false" />
+                <element signature="e#1155#1156#0" expanded="false" />
+                <element signature="e#1191#1192#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,6 +204,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="layoutResourceFile_vertical" />
         <option value="Class" />
       </list>
     </option>
@@ -166,6 +224,17 @@
       <find>setParameters</find>
       <find>AreaComparator</find>
       <find>scanImg</find>
+      <find>MatOfPoint</find>
+      <find>quadrilateralReceiptView</find>
+      <find>cr</find>
+      <find>onre</find>
+      <find>pictu</find>
+      <find>R.id.picture</find>
+      <find>Toast</find>
+      <find>mFile</find>
+      <find>ImageSaver</find>
+      <find>picture</find>
+      <find>resize</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -2717,27 +2786,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/build.gradle" />
         <option value="$PROJECT_DIR$/openCVLibrary340/build.gradle" />
-        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java" />
-        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java" />
-        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CameraActivity.java" />
         <option value="$PROJECT_DIR$/Application/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml" />
-        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/QuadrilateralView.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/res/layout/cropped_img_activity.xml" />
+        <option value="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java" />
+        <option value="$PROJECT_DIR$/Application/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="816" />
-    <option name="y" value="-1417" />
-    <option name="width" value="1733" />
-    <option name="height" value="1360" />
+    <option name="x" value="133" />
+    <option name="y" value="-1373" />
+    <option name="width" value="2215" />
+    <option name="height" value="1306" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2751,37 +2824,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2791,7 +2839,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -2799,60 +2847,487 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jniLibs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="arm64-v8a" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="openCVLibrary340" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android-Camera2Basic-master copy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openCVLibrary340" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openCVLibrary340" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="openCVLibrary340" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="opencv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="x86_64" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="x86" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mips64" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mips" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="armeabi-v7a" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="armeabi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="arm64-v8a" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="receiptcamera" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-Camera2Basic-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="camera2basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="Nexus_5X_API_23_android_6" />
+    <property name="device.picker.selection" value="75afbe4b" />
     <property name="android.project.structure.last.selected" value="Application" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.profiler.active" value="true" />
@@ -2946,7 +3421,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519289571382" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519380389625" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2994,7 +3469,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519289571382" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519380389625" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3156,7 +3631,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519289571384" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519380389626" />
       </method>
     </configuration>
     <list size="1">
@@ -3204,11 +3679,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="816" y="-1417" width="1733" height="1360" extended-state="0" />
+    <frame x="133" y="-1373" width="2215" height="1306" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5700769" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24948025" sideWeight="0.5044586" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3217,18 +3693,18 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.49793023" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27815127" sideWeight="0.49793023" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3122413" sideWeight="0.4955414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22503452" sideWeight="0.4955414" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2692926" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26890758" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3236,7 +3712,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998225" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963648" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3245,97 +3721,43 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="41" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java</url>
+          <line>515</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java</url>
+          <line>525</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="70" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="bitmap.getWidth()" language="JAVA" />
-        <watch expression="bitmap.getHeight()" language="JAVA" />
         <watch expression="grey.cols()" language="JAVA" />
         <watch expression="grey.rows()" language="JAVA" />
+        <watch expression="contours" language="JAVA" />
+        <watch expression="Imgproc.contourArea(contours.get(0))" language="JAVA" />
+        <watch expression="contours.get(0)" language="JAVA" />
+        <watch expression="Imgproc.contourArea(contours.get(0))" language="JAVA" />
+        <watch expression="areaOfPicture" language="JAVA" />
+        <watch expression="grey.rows()" language="JAVA" />
+        <watch expression="grey.cols()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/activity_camera.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="37" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="e#1315#2298#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout-land/fragment_camera2_basic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/CvType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -3449,20 +3871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/CameraBridgeViewBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2325">
@@ -3474,20 +3882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4500">
           <caret line="322" column="39" lean-forward="false" selection-start-line="322" selection-start-column="39" selection-end-line="322" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/ExtendedCamera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -3505,27 +3899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Mat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5265">
-          <caret line="351" column="16" lean-forward="false" selection-start-line="351" selection-start-column="16" selection-end-line="351" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="121" column="5" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="121" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/CvType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -3534,19 +3907,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout-land/fragment_camera2_basic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CameraActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3554,7 +3920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3570,7 +3935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3578,7 +3942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3586,7 +3949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23040">
           <caret line="1615" column="16" lean-forward="false" selection-start-line="1615" selection-start-column="16" selection-end-line="1615" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3594,40 +3956,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2235">
-          <caret line="243" column="48" lean-forward="false" selection-start-line="243" selection-start-column="48" selection-end-line="243" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="3735">
+          <caret line="298" column="30" lean-forward="false" selection-start-line="298" selection-start-column="30" selection-end-line="298" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/activity_camera.xml">
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml">
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-          <folding>
-            <element signature="e#1315#2298#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="705">
+          <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/ExtendedCamera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/QuadrilateralView.java">
@@ -3637,19 +3994,256 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/java/lang/System.java">
+    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/fragment_camera2_basic.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3735">
-          <caret line="298" column="30" lean-forward="false" selection-start-line="298" selection-start-column="30" selection-end-line="298" selection-end-column="30" />
+        <state relative-caret-position="595">
+          <caret line="42" column="36" lean-forward="false" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java">
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/media/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+        <state relative-caret-position="476">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/cropped_img_activity.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/res/layout/activity_camera.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="53" />
+          <folding>
+            <element signature="e#1206#1224#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Mat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/3f998a26355e4138e3e7a880a5dac57fc4370339/picasso-2.5.2-sources.jar!/com/squareup/picasso/BitmapHunter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5475">
+          <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="429" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18447#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2517#2518#0" expanded="false" />
+            <element signature="e#2542#2543#0" expanded="false" />
+            <element signature="e#11107#11108#0" expanded="false" />
+            <element signature="e#11162#11163#0" expanded="false" />
+            <element signature="e#11428#11429#0" expanded="false" />
+            <element signature="e#11476#11477#0" expanded="false" />
+            <element signature="e#11500#11501#0" expanded="false" />
+            <element signature="e#11523#11524#0" expanded="false" />
+            <element signature="e#11544#11545#0" expanded="false" />
+            <element signature="e#11564#11565#0" expanded="false" />
+            <element signature="e#11591#11592#0" expanded="false" />
+            <element signature="e#11620#11621#0" expanded="false" />
+            <element signature="e#11643#11644#0" expanded="false" />
+            <element signature="e#11664#11665#0" expanded="false" />
+            <element signature="e#11688#11689#0" expanded="false" />
+            <element signature="e#11711#11712#0" expanded="false" />
+            <element signature="e#11737#11738#0" expanded="false" />
+            <element signature="e#11761#11762#0" expanded="false" />
+            <element signature="e#11792#11793#0" expanded="false" />
+            <element signature="e#11816#11817#0" expanded="false" />
+            <element signature="e#11846#11847#0" expanded="false" />
+            <element signature="e#11872#11873#0" expanded="false" />
+            <element signature="e#11912#11913#0" expanded="false" />
+            <element signature="e#11939#11940#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="false" />
+            <element signature="e#11992#11993#0" expanded="false" />
+            <element signature="e#14220#14221#0" expanded="false" />
+            <element signature="e#14296#14297#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="53" column="74" lean-forward="false" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1040#1041#0" expanded="false" />
+            <element signature="e#1080#1081#0" expanded="false" />
+            <element signature="e#1155#1156#0" expanded="false" />
+            <element signature="e#1191#1192#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/Rect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding>
+            <element signature="e#278#279#0" expanded="false" />
+            <element signature="e#310#311#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
+            <element signature="e#703#704#0" expanded="false" />
+            <element signature="e#728#729#0" expanded="false" />
+            <element signature="e#1160#1161#0" expanded="false" />
+            <element signature="e#1212#1213#0" expanded="false" />
+            <element signature="e#1237#1238#0" expanded="false" />
+            <element signature="e#1275#1276#0" expanded="false" />
+            <element signature="e#1300#1301#0" expanded="false" />
+            <element signature="e#1355#1356#0" expanded="false" />
+            <element signature="e#1381#1382#0" expanded="false" />
+            <element signature="e#1427#1428#0" expanded="false" />
+            <element signature="e#1455#1456#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1522#1523#0" expanded="false" />
+            <element signature="e#1570#1571#0" expanded="false" />
+            <element signature="e#2582#2583#0" expanded="false" />
+            <element signature="e#2659#2660#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/BaseLoaderCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#433#434#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#1517#1518#0" expanded="false" />
+            <element signature="e#1573#1574#0" expanded="false" />
+            <element signature="e#2795#2796#0" expanded="false" />
+            <element signature="e#2851#2852#0" expanded="false" />
+            <element signature="e#3616#3617#0" expanded="false" />
+            <element signature="e#3672#3673#0" expanded="false" />
+            <element signature="e#4555#4556#0" expanded="false" />
+            <element signature="e#4621#4622#0" expanded="false" />
+            <element signature="e#4840#4841#0" expanded="false" />
+            <element signature="e#4905#4906#0" expanded="false" />
+            <element signature="e#5827#5828#0" expanded="false" />
+            <element signature="e#5892#5893#0" expanded="false" />
+            <element signature="e#6011#6012#0" expanded="false" />
+            <element signature="e#6060#6061#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/AsyncServiceHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2658#2659#0" expanded="false" />
+            <element signature="e#2721#2722#0" expanded="false" />
+            <element signature="e#4634#4635#0" expanded="false" />
+            <element signature="e#4697#4698#0" expanded="false" />
+            <element signature="e#5391#5392#0" expanded="false" />
+            <element signature="e#5463#5464#0" expanded="false" />
+            <element signature="e#7537#7538#0" expanded="false" />
+            <element signature="e#7632#7633#0" expanded="false" />
+            <element signature="e#11033#11034#0" expanded="false" />
+            <element signature="e#11128#11129#0" expanded="false" />
+            <element signature="e#16287#16288#0" expanded="false" />
+            <element signature="e#16332#16333#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/android/OpenCVLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding>
+            <element signature="e#2557#2558#0" expanded="false" />
+            <element signature="e#2610#2611#0" expanded="false" />
+            <element signature="e#2966#2967#0" expanded="false" />
+            <element signature="e#3022#3023#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="90" column="27" lean-forward="false" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5817">
+          <caret line="1036" column="0" lean-forward="true" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

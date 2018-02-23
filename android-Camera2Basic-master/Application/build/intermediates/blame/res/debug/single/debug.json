@@ -32,6 +32,10 @@
         "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/85f896f817a59d3f4fce180fc3e63547/res/color-v21/abc_btn_colored_borderless_text_material.xml"
     },
     {
+        "merged": "/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/res/merged/debug/layout_cropped_img_activity.xml.flat",
+        "source": "/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/src/main/res/layout/cropped_img_activity.xml"
+    },
+    {
         "merged": "/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/res/merged/debug/layout_abc_action_menu_layout.xml.flat",
         "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/85f896f817a59d3f4fce180fc3e63547/res/layout/abc_action_menu_layout.xml"
     },

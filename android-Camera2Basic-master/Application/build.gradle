@@ -24,6 +24,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:27.0.2'
     compile 'com.android.support:appcompat-v7:27.0.2'
     implementation project(':openCVLibrary340')
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
 // The sample build uses multiple directories to
@@ -60,5 +61,14 @@ android {
         androidTest.java.srcDirs = ['tests/src']
 
     }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64',  'arm64-v8a'
+            universalApk false
+        }
+    }
 
 }
+
