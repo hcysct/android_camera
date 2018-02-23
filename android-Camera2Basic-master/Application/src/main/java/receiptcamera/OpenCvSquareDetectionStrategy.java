@@ -12,17 +12,22 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.core.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static org.opencv.core.CvType.CV_8UC1;
 import static org.opencv.core.CvType.CV_8UC4;
 import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
+import static org.opencv.imgproc.Imgproc.THRESH_BINARY;
+import static org.opencv.imgproc.Imgproc.THRESH_OTSU;
 
 /**
  * Created by grzegorzbaczek on 16/02/2018.
@@ -84,18 +89,41 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         rgbMat = new Mat();
         rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
         Utils.bitmapToMat(bmp, rgbMat);
-        Mat grayMat = new Mat();
-        Imgproc.cvtColor(rgbMat, grayMat, 6);
-        List<MatOfPoint> result = processCurrentFrame(grayMat);
+        greyMat = new Mat();
+        Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
+        List<MatOfPoint> result = processCurrentFrame(greyMat);
 
-        if(result != null){Rect boundRect = Imgproc.boundingRect( result.get(0) );
-            croppedMat = new Mat(rgbMat, boundRect);
-            Bitmap out = Bitmap.createBitmap(croppedMat.cols(), croppedMat.rows(), Bitmap.Config.ARGB_8888);
+        if(result != null){
+            Rect boundRect = Imgproc.boundingRect( result.get(0) );
+           
+            Mat countourMask = new Mat();
+            countourMask.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
+            countourMask.setTo(new Scalar(255,255,255));
+
+            Imgproc.drawContours(countourMask, result, 0,new Scalar(0,0,0),-1 );
+            Mat extracted = new Mat();
+            extracted.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
+            Core.bitwise_or(greyMat, countourMask,extracted);
+            croppedMat = new Mat(extracted, boundRect);
+            Mat temp = new Mat();
+            blurMat = new Mat();
+            Imgproc.GaussianBlur(croppedMat, blurMat, new Size(0, 0), 3);
+            Core.addWeighted(croppedMat, 1.5, croppedMat, -0.5, 0, croppedMat);
+
+            //Imgproc.threshold(croppedMat, croppedMat, 128, 255, THRESH_BINARY | THRESH_OTSU);
+            Bitmap out = Bitmap.createBitmap(croppedMat.cols(), croppedMat.rows(), Bitmap.Config.ARGB_4444);
+           // Mat eqGS=new Mat();
+            //Imgproc.equalizeHist(croppedMat, eqGS);
             Utils.matToBitmap(croppedMat, out);
             bmp.recycle();
             return out;
         }
-        return bmp;
+        Bitmap out = Bitmap.createBitmap(greyMat.cols(), greyMat.rows(), Bitmap.Config.ARGB_8888);
+        Mat eqGS=new Mat();
+        Imgproc.equalizeHist(greyMat, eqGS);
+        Utils.matToBitmap(eqGS, out);
+        bmp.recycle();
+        return out;
 
        /* MatOfPoint2f outDP = null;
         input = new Mat(input, outDP);*/
