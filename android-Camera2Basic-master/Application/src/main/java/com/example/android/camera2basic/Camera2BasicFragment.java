@@ -26,12 +26,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
@@ -63,17 +59,12 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.android.Utils;
-import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
-import org.opencv.core.MatOfPoint2f;
-import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
@@ -91,12 +82,6 @@ import java.util.concurrent.TimeUnit;
 import receiptcamera.BackgroundSquareDetector;
 import receiptcamera.OpenCvSquareDetectionStrategy;
 
-import static org.opencv.core.CvType.CV_8UC1;
-import static org.opencv.core.CvType.CV_8UC3;
-import static org.opencv.core.CvType.CV_8UC4;
-import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
-import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
-
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback, BackgroundSquareDetector.BackgroundSquareDetectorListener{
 
@@ -106,6 +91,7 @@ public class Camera2BasicFragment extends Fragment
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
+    private static final int PREVIEW_SCALE = 4;
 
     //private ImageView scanImg;
     private QuadrilateralView quadrilateralReceiptView;
@@ -168,7 +154,7 @@ public class Camera2BasicFragment extends Fragment
                     quadrilateralReceiptView.setSquarePoints(result.get(0).toList(), 4);
                 }
                 else{
-                    quadrilateralReceiptView.setSquarePoints(null, 4);
+                    quadrilateralReceiptView.setSquarePoints(null, PREVIEW_SCALE);
                 }
             }
         });
@@ -219,7 +205,7 @@ public class Camera2BasicFragment extends Fragment
             int width = mTextureView.getWidth();
             int height = mTextureView.getHeight();
 
-            Bitmap bitmap = getResizedBitmap(mTextureView.getBitmap(width, height),width /4, height /4);
+            Bitmap bitmap = getResizedBitmap(mTextureView.getBitmap(width, height),width / PREVIEW_SCALE, height / PREVIEW_SCALE);
             backgroundSquareDetector.setCurrentFrame(bitmap);
 
             //Utils.matToBitmap(output, bitmap);
@@ -1164,12 +1150,18 @@ public class Camera2BasicFragment extends Fragment
 
             @Override
             public void run() {
+
                 ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
                 mImage.getWidth();
                 Intent i = new Intent(getActivity(), CroppedImageActivity.class);
+                i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
                 i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
-                i.putExtra(CroppedImageActivity.IMAGE_WIDTH, mImage.getWidth());
-                i.putExtra(CroppedImageActivity.IMAGE_HEIGHT, mImage.getHeight());
+                i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
+                i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
+
+                List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
+                BackgroundSquareDetector.cachedResult = points;
+
                 byte[] bytes = new byte[buffer.remaining()];
                 buffer.get(bytes);
                 FileOutputStream output = null;

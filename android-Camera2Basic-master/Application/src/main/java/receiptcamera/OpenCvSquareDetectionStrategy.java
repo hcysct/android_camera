@@ -1,21 +1,19 @@
 package receiptcamera;
 
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.util.Log;
 
-import com.example.android.camera2basic.Camera2BasicFragment;
-
-import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.Utils;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
+import org.opencv.imgproc.CLAHE;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.core.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,8 +24,6 @@ import static org.opencv.core.CvType.CV_8UC1;
 import static org.opencv.core.CvType.CV_8UC4;
 import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
-import static org.opencv.imgproc.Imgproc.THRESH_BINARY;
-import static org.opencv.imgproc.Imgproc.THRESH_OTSU;
 
 /**
  * Created by grzegorzbaczek on 16/02/2018.
@@ -44,7 +40,7 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
     Mat croppedMat;
 
 
-    public  List<MatOfPoint> processCurrentFrame(Mat grey) {
+    public List<MatOfPoint> processCurrentFrame(Mat grey) {
         List<MatOfPoint> result = null;
         if (grey != null) {
 
@@ -65,7 +61,7 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
 
             Collections.sort(contours, new AreaComparator());
 
-            if (contours.size() > 0 && Math.abs(Imgproc.contourArea(contours.get(0))) /areaOfPicture > 0.3 ) {
+            if (contours.size() > 0 && Math.abs(Imgproc.contourArea(contours.get(0))) / areaOfPicture > 0.3) {
                 MatOfPoint contour = contours.get(0);
                 double arc = Imgproc.arcLength(new MatOfPoint2f(contour.toArray()), true);
                 MatOfPoint2f outDP = new MatOfPoint2f();
@@ -84,7 +80,81 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         return result;
     }
 
-    public Bitmap cropSquare(Bitmap bmp){
+    public Rect getBoundingRect(List<MatOfPoint> matOfPoints) {
+        if (matOfPoints != null) {
+            return Imgproc.boundingRect(matOfPoints.get(0));
+        } else {
+            return null;
+        }
+    }
+
+
+    public Bitmap cropQuadrilateral(Bitmap bmp, List<MatOfPoint> matOfPoints, android.graphics.Rect bitmapBoundingRect, int scale, float widthRatio, float heightRation) {
+
+        MatOfPoint matOfPoint = matOfPoints.get(0);
+        List<Point> points = matOfPoint.toList();
+        //scale points
+        points.get(0).x *= scale * widthRatio;
+        points.get(0).y *= scale * heightRation;
+        points.get(1).x *= scale * widthRatio;
+        points.get(1).y *= scale * heightRation;
+        points.get(2).x *= scale * widthRatio;
+        points.get(2).y *= scale * heightRation;
+        points.get(3).x *= scale * widthRatio;
+        points.get(3).y *= scale * heightRation;
+
+        points.get(0).x -= bitmapBoundingRect.left;
+        points.get(0).y -= bitmapBoundingRect.top;
+        points.get(1).x -= bitmapBoundingRect.left;
+        points.get(1).y -= bitmapBoundingRect.top;
+        points.get(2).x -= bitmapBoundingRect.left;
+        points.get(2).y -= bitmapBoundingRect.top;
+        points.get(3).x -= bitmapBoundingRect.left;
+        points.get(3).y -= bitmapBoundingRect.top;
+
+
+        Point[] scaledPoints = new Point[4];
+        scaledPoints[0] = points.get(0);
+        scaledPoints[1] = points.get(1);
+        scaledPoints[2] = points.get(2);
+        scaledPoints[3] = points.get(3);
+        List<MatOfPoint> scaledMatOfPoints = new ArrayList<>();
+        scaledMatOfPoints.add(new MatOfPoint(scaledPoints));
+
+
+        rgbMat = new Mat();
+        rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
+        Utils.bitmapToMat(bmp, rgbMat);
+        greyMat = new Mat();
+        Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
+
+
+        //Rect boundRect = Imgproc.boundingRect( result.get(0) );
+
+        Mat countourMask = new Mat();
+        countourMask.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
+        countourMask.setTo(new Scalar(255, 255, 255));
+
+        Imgproc.drawContours(countourMask, scaledMatOfPoints, 0, new Scalar(0, 0, 0), -1);
+        Mat extracted = new Mat();
+        extracted.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
+        Core.bitwise_or(greyMat, countourMask, extracted);
+        //croppedMat = new Mat(extracted, boundRect);
+        Mat temp = new Mat();
+
+        CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
+        clahe.apply(extracted, temp);
+        //Imgproc.threshold(croppedMat, croppedMat, 128, 255, THRESH_BINARY | THRESH_OTSU);
+        Bitmap out = Bitmap.createBitmap(temp.cols(), temp.rows(), Bitmap.Config.ARGB_8888);
+        // Mat eqGS=new Mat();
+        //Imgproc.equalizeHist(croppedMat, eqGS);
+        Utils.matToBitmap(temp, out);
+        bmp.recycle();
+        return out;
+
+    }
+
+    public Bitmap cropSquare(Bitmap bmp) {
 
         rgbMat = new Mat();
         rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
@@ -93,35 +163,34 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
         List<MatOfPoint> result = processCurrentFrame(greyMat);
 
-        if(result != null){
-            Rect boundRect = Imgproc.boundingRect( result.get(0) );
-           
+        if (result != null) {
+            Rect boundRect = Imgproc.boundingRect(result.get(0));
+
             Mat countourMask = new Mat();
             countourMask.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
-            countourMask.setTo(new Scalar(255,255,255));
+            countourMask.setTo(new Scalar(255, 255, 255));
 
-            Imgproc.drawContours(countourMask, result, 0,new Scalar(0,0,0),-1 );
+            Imgproc.drawContours(countourMask, result, 0, new Scalar(0, 0, 0), -1);
             Mat extracted = new Mat();
             extracted.create(greyMat.rows(), greyMat.cols(), CV_8UC1);
-            Core.bitwise_or(greyMat, countourMask,extracted);
+            Core.bitwise_or(greyMat, countourMask, extracted);
             croppedMat = new Mat(extracted, boundRect);
             Mat temp = new Mat();
-            blurMat = new Mat();
-            Imgproc.GaussianBlur(croppedMat, blurMat, new Size(0, 0), 3);
-            Core.addWeighted(croppedMat, 1.5, croppedMat, -0.5, 0, croppedMat);
 
+            CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
+            clahe.apply(croppedMat, temp);
             //Imgproc.threshold(croppedMat, croppedMat, 128, 255, THRESH_BINARY | THRESH_OTSU);
-            Bitmap out = Bitmap.createBitmap(croppedMat.cols(), croppedMat.rows(), Bitmap.Config.ARGB_4444);
-           // Mat eqGS=new Mat();
+            Bitmap out = Bitmap.createBitmap(temp.cols(), temp.rows(), Bitmap.Config.ARGB_4444);
+            // Mat eqGS=new Mat();
             //Imgproc.equalizeHist(croppedMat, eqGS);
-            Utils.matToBitmap(croppedMat, out);
+            Utils.matToBitmap(temp, out);
             bmp.recycle();
             return out;
         }
         Bitmap out = Bitmap.createBitmap(greyMat.cols(), greyMat.rows(), Bitmap.Config.ARGB_8888);
-        Mat eqGS=new Mat();
-        Imgproc.equalizeHist(greyMat, eqGS);
-        Utils.matToBitmap(eqGS, out);
+        //Mat eqGS=new Mat();
+        //Imgproc.equalizeHist(greyMat, eqGS);
+        Utils.matToBitmap(greyMat, out);
         bmp.recycle();
         return out;
 
@@ -130,8 +199,7 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
     }
 
 
-
-    public List<MatOfPoint> processCurrentFrame(Bitmap bmp){
+    public List<MatOfPoint> processCurrentFrame(Bitmap bmp) {
         greyMat = new Mat();
         greyMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
         Utils.bitmapToMat(bmp, greyMat);
@@ -140,26 +208,26 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         return processCurrentFrame(grayMat);
     }
 
-    public void release(){
-        if(rgbMat != null) {
+    public void release() {
+        if (rgbMat != null) {
             rgbMat.release();
         }
-        if(croppedMat != null){
+        if (croppedMat != null) {
             cannyMat.release();
         }
-        if(greyMat != null) {
+        if (greyMat != null) {
             greyMat.release();
         }
-        if(blurMat != null) {
+        if (blurMat != null) {
             blurMat.release();
         }
-        if(cannyMat != null) {
+        if (cannyMat != null) {
             cannyMat.release();
         }
-        if(thresholdMat != null) {
+        if (thresholdMat != null) {
             thresholdMat.release();
         }
-        if(hierarchy != null) {
+        if (hierarchy != null) {
             hierarchy.release();
         }
     }
@@ -170,13 +238,11 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         public int compare(MatOfPoint v1, MatOfPoint v2) {
             double v1Area = Math.abs(Imgproc.contourArea(v1));
             double v2Area = Math.abs(Imgproc.contourArea(v2));
-            if(v1Area - v2Area > 0){
+            if (v1Area - v2Area > 0) {
                 return -1;
-            }
-            else if(v1Area - v2Area < 0){
+            } else if (v1Area - v2Area < 0) {
                 return 1;
-            }
-            else{
+            } else {
                 return 0;
             }
         }
