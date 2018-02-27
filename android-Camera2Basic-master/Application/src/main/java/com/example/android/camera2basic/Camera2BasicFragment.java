@@ -95,6 +95,7 @@ public class Camera2BasicFragment extends Fragment
 
     //private ImageView scanImg;
     private QuadrilateralView quadrilateralReceiptView;
+    private boolean pictureSaved;
 
     private BackgroundSquareDetector backgroundSquareDetector;
 
@@ -648,6 +649,7 @@ public class Camera2BasicFragment extends Fragment
         @Override
         public void onResume() {
             super.onResume();
+            pictureSaved = false;
             backgroundSquareDetector.startRunning();
             if (!OpenCVLoader.initDebug()) {
                 Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
@@ -1025,6 +1027,8 @@ public class Camera2BasicFragment extends Fragment
          * Capture a still picture. This method should be called when we get a response in
          * {@link #mCaptureCallback} from both {@link #lockFocus()}.
          */
+        Thread redirectThread;
+
         private void captureStillPicture() {
             try {
                 final Activity activity = getActivity();
@@ -1052,9 +1056,40 @@ public class Camera2BasicFragment extends Fragment
                     public void onCaptureCompleted(@NonNull CameraCaptureSession session,
                                                    @NonNull CaptureRequest request,
                                                    @NonNull TotalCaptureResult result) {
+
                         showToast("Saved: " + mFile);
                         Log.d(TAG, mFile.toString());
                         unlockFocus();
+                        if(redirectThread != null){
+                            try {
+                                redirectThread.join();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        redirectThread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                for(int i = 0; i < 6; i++){
+                                    if(pictureSaved){
+                                        mTextureView.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Log.i("pic_capture","onCaptureCompleted");
+                                                redirectToCroppedImageActivity();
+                                            }
+                                        });
+                                        return;
+                                    }
+                                    try {
+                                        Thread.sleep(150);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        });
+                        redirectThread.start();
                     }
                 };
 
@@ -1064,6 +1099,16 @@ public class Camera2BasicFragment extends Fragment
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             }
+        }
+
+        private void redirectToCroppedImageActivity(){
+            Intent i = new Intent(getActivity(), CroppedImageActivity.class);
+            i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
+            i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
+            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
+            startActivity(i);
         }
 
         /**
@@ -1152,12 +1197,15 @@ public class Camera2BasicFragment extends Fragment
             public void run() {
 
                 ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
-                mImage.getWidth();
+                /*mImage.getWidth();
                 Intent i = new Intent(getActivity(), CroppedImageActivity.class);
                 i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
                 i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
                 i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
                 i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
+
+                List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
+                BackgroundSquareDetector.cachedResult = points;*/
 
                 List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
                 BackgroundSquareDetector.cachedResult = points;
@@ -1166,12 +1214,15 @@ public class Camera2BasicFragment extends Fragment
                 buffer.get(bytes);
                 FileOutputStream output = null;
                 try {
-                    if(mFile.exists()) {
+                   /* if(mFile.exists()) {
                         mFile.delete();
-                    }
+                    }*/
+
                     output = new FileOutputStream(mFile, false);
                     output.write(bytes);
-                    startActivity(i);
+                    Log.i("pic_capture","pic_saved");
+                    pictureSaved = true;
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
