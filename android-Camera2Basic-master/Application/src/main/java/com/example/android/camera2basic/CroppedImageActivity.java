@@ -8,9 +8,16 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -62,10 +69,7 @@ public class CroppedImageActivity extends AppCompatActivity {
 
         //int originalImageSampleSize = calculateInSampleSize(options.outWidth, options.outHeight);
 
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = false;
 
-        Bitmap bmp = BitmapFactory.decodeFile(path, options);
 
 
 
@@ -92,24 +96,48 @@ public class CroppedImageActivity extends AppCompatActivity {
                 .resize()
                 .into(target);*/
 
-        File f = new File(path);
-        Picasso.with(getBaseContext()).invalidate(f);
-        if(options.outHeight > options.outWidth) {
-            Picasso.with(getBaseContext())
-                    .load(f)
-                    .transform(new CropRectangleTransformation())
-                    .resize(cropped_image.getWidth(), cropped_image.getHeight())
-                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                    .into(cropped_image);
-        }
-        else{
-            Picasso.with(getBaseContext())
-                    .load(f)
-                    .transform(new CropRectangleTransformation())
-                    .resize(cropped_image.getHeight(), cropped_image.getWidth())
-                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                    .into(cropped_image);
-        }
+        cropped_image.post(new Runnable() {
+            @Override
+            public void run() {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = false;
+                Bitmap bmp = BitmapFactory.decodeFile(path, options);
+                File f = new File(path);
+                Picasso.with(getBaseContext()).invalidate(f);
+
+                 Glide.with(getBaseContext())
+                        .load(f)
+                         .asBitmap()
+                         .override(contianer.getWidth(), contianer.getHeight())
+                         .diskCacheStrategy(DiskCacheStrategy.NONE)
+                         .skipMemoryCache(true)
+                         .into(new BitmapImageViewTarget(cropped_image) {
+                             @Override
+                             protected void setResource(Bitmap resource) {
+                                 // Do bitmap magic here
+                                 Bitmap bmp = processImage(resource, previewWidth, previewHeight, scale);
+                                 super.setResource(bmp);
+                             }
+                         });
+                /*if(options.outHeight > options.outWidth) {
+                    Picasso.with(getBaseContext())
+                            .load(f)
+                            .transform(new CropRectangleTransformation())
+                            .resize(options.outWidth, options.outHeight)
+                            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                            .into(cropped_image);
+                }
+                else{
+                    Picasso.with(getBaseContext())
+                            .load(f)
+                            .transform(new CropRectangleTransformation())
+                            .resize(options.outWidth, options.outHeight)
+                            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                            .into(cropped_image);
+                }*/
+            }
+        });
+
 
 
         /*if(result != null){

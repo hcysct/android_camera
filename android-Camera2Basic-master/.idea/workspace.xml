@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -33,83 +33,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OpenCvSquareDetectionStrategy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="method#cropSquare#0;class#OpenCvSquareDetectionStrategy#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatOfPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/openCVLibrary340/src/main/java/org/opencv/core/MatOfPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#568#569#0" expanded="false" />
-                <element signature="e#611#612#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/graphics/Rect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="40" column="15" lean-forward="false" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#23416#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#2159#2160#0" expanded="false" />
-                <element signature="e#2220#2221#0" expanded="false" />
-                <element signature="e#4407#4408#0" expanded="false" />
-                <element signature="e#4466#4467#0" expanded="false" />
-                <element signature="e#6675#6676#0" expanded="false" />
-                <element signature="e#6728#6729#0" expanded="false" />
-                <element signature="e#6915#6916#0" expanded="false" />
-                <element signature="e#6950#6951#0" expanded="false" />
-                <element signature="e#7139#7140#0" expanded="false" />
-                <element signature="e#7174#7175#0" expanded="false" />
-                <element signature="e#7428#7429#0" expanded="false" />
-                <element signature="e#7470#7471#0" expanded="false" />
-                <element signature="e#7722#7723#0" expanded="false" />
-                <element signature="e#7764#7765#0" expanded="false" />
-                <element signature="e#7897#7898#0" expanded="false" />
-                <element signature="e#7941#7942#0" expanded="false" />
-                <element signature="e#8072#8073#0" expanded="false" />
-                <element signature="e#8116#8117#0" expanded="false" />
-                <element signature="e#8200#8201#0" expanded="false" />
-                <element signature="e#8247#8248#0" expanded="false" />
-                <element signature="e#16256#16257#0" expanded="false" />
-                <element signature="e#16322#16323#0" expanded="false" />
-                <element signature="e#20405#20406#0" expanded="false" />
-                <element signature="e#20460#20461#0" expanded="false" />
-                <element signature="e#21719#21720#0" expanded="false" />
-                <element signature="e#21743#21744#0" expanded="false" />
-                <element signature="e#22596#22597#0" expanded="false" />
-                <element signature="e#22641#22642#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CroppedImageActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CroppedImageActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="108" column="79" lean-forward="false" selection-start-line="108" selection-start-column="79" selection-end-line="108" selection-end-column="79" />
+            <state relative-caret-position="424">
+              <caret line="107" column="30" lean-forward="false" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1519737430832" expanded="false" signature="8246:8261" ph=" { " />
-                <marker date="1519737430832" expanded="false" signature="8284:8294" ph=" }" />
+                <element signature="e#3131#5175#0" expanded="true" />
+                <element signature="e#5174#5175#0" expanded="true" />
+                <marker date="1519739809216" expanded="false" signature="9626:9641" ph=" { " />
+                <marker date="1519739809216" expanded="false" signature="9664:9674" ph=" }" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openCVLibrary340/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,32 +122,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camera2BasicFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Camera2BasicFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="1069" column="30" lean-forward="false" selection-start-line="1069" selection-start-column="30" selection-end-line="1069" selection-end-column="30" />
+            <state relative-caret-position="305">
+              <caret line="1062" column="44" lean-forward="true" selection-start-line="1061" selection-start-column="22" selection-end-line="1062" selection-end-column="44" />
               <folding>
-                <element signature="e#15440#15686#0" expanded="true" />
-                <element signature="e#15685#15686#0" expanded="true" />
-                <element signature="e#44449#46510#0" expanded="true" />
-                <element signature="e#45301#46420#0" expanded="true" />
-                <element signature="e#45576#45971#0" expanded="true" />
-                <element signature="e#45970#45971#0" expanded="true" />
-                <element signature="e#46419#46420#0" expanded="true" />
-                <element signature="e#46509#46510#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BackgroundSquareDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#15412#15658#0" expanded="true" />
+                <element signature="e#15657#15658#0" expanded="true" />
+                <element signature="e#41456#41457#0" expanded="true" />
+                <element signature="e#41491#41492#0" expanded="true" />
+                <element signature="e#44425#46486#0" expanded="true" />
+                <element signature="e#45277#46396#0" expanded="true" />
+                <element signature="e#45552#45947#0" expanded="true" />
+                <element signature="e#45946#45947#0" expanded="true" />
+                <element signature="e#46395#46396#0" expanded="true" />
+                <element signature="e#46485#46486#0" expanded="true" />
+                <marker date="1519742957693" expanded="false" signature="20239:20325" ph="() → {" />
+                <marker date="1519742957693" expanded="false" signature="20425:20448" ph="}" />
               </folding>
             </state>
           </provider>
@@ -203,9 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mTextureView</find>
-      <find>mPreviewFormat</find>
-      <find>format</find>
       <find>oncreate</find>
       <find>mat</find>
       <find>ImageFormat</find>
@@ -233,6 +198,9 @@
       <find>toast</find>
       <find>ImageSaver</find>
       <find>onresum</find>
+      <find>toas</find>
+      <find>pic_capture</find>
+      <find>Log</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -2792,12 +2760,12 @@
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/SquareDetectionStrategy.java" />
         <option value="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/Application/build.gradle" />
         <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/BackgroundSquareDetector.java" />
         <option value="$PROJECT_DIR$/Application/src/main/java/receiptcamera/OpenCvSquareDetectionStrategy.java" />
         <option value="$PROJECT_DIR$/Application/src/main/res/layout/cropped_img_activity.xml" />
-        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java" />
+        <option value="$PROJECT_DIR$/Application/build.gradle" />
         <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java" />
+        <option value="$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java" />
       </list>
     </option>
   </component>
@@ -3236,7 +3204,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519737430839" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519744170576" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3284,7 +3252,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519737430839" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519744170576" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3467,7 +3435,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519737430840" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519744170576" />
       </method>
     </configuration>
     <list size="1">
@@ -3521,7 +3489,7 @@
     <frame x="79" y="-1388" width="1556" height="1312" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5700769" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5700769" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24948025" sideWeight="0.5044586" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.42992312" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27759197" sideWeight="0.49793023" order="7" side_tool="false" content_ui="tabs" />
@@ -3529,8 +3497,8 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4464883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4464883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285953" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3541,7 +3509,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21994716" sideWeight="0.4955414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43791282" sideWeight="0.4955414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3552,7 +3521,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3560,7 +3528,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="108" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java</url>
+          <line>163</line>
+          <properties />
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java</url>
+          <line>1059</line>
+          <properties />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="114" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -3569,6 +3551,10 @@
         <watch expression="matOfPoint.toList()" language="JAVA" />
         <watch expression="source.getHeight()" language="JAVA" />
         <watch expression="source.getWidth()" language="JAVA" />
+        <watch expression="options.outHeight" language="JAVA" />
+        <watch expression="options.outWidth" language="JAVA" />
+        <watch expression="cropped_image.getWidth()" language="JAVA" />
+        <watch expression="cropped_image.getHeight()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -3585,33 +3571,24 @@
         <state relative-caret-position="1515">
           <caret line="180" column="21" lean-forward="true" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="21" />
           <folding>
-            <element signature="e#15440#15686#0" expanded="true" />
-            <element signature="e#15685#15686#0" expanded="true" />
-            <element signature="e#44449#46510#0" expanded="true" />
-            <element signature="e#45301#46420#0" expanded="true" />
-            <element signature="e#45576#45971#0" expanded="true" />
-            <element signature="e#45970#45971#0" expanded="true" />
-            <element signature="e#46419#46420#0" expanded="true" />
-            <element signature="e#46509#46510#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#15412#15658#0" expanded="true" />
+            <element signature="e#15657#15658#0" expanded="true" />
+            <element signature="e#41456#41457#0" expanded="true" />
+            <element signature="e#41491#41492#0" expanded="true" />
+            <element signature="e#44425#46486#0" expanded="true" />
+            <element signature="e#45277#46396#0" expanded="true" />
+            <element signature="e#45552#45947#0" expanded="true" />
+            <element signature="e#45946#45947#0" expanded="true" />
+            <element signature="e#46395#46396#0" expanded="true" />
+            <element signature="e#46485#46486#0" expanded="true" />
+            <marker date="1519742957693" expanded="false" signature="20239:20325" ph="() → {" />
+            <marker date="1519742957693" expanded="false" signature="20425:20448" ph="}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -3698,13 +3675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary340/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/AutoFitTextureView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -3768,14 +3738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4151,31 +4113,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
+    <entry file="file://$PROJECT_DIR$/openCVLibrary340/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="1069" column="30" lean-forward="false" selection-start-line="1069" selection-start-column="30" selection-end-line="1069" selection-end-column="30" />
-          <folding>
-            <element signature="e#15440#15686#0" expanded="true" />
-            <element signature="e#15685#15686#0" expanded="true" />
-            <element signature="e#44449#46510#0" expanded="true" />
-            <element signature="e#45301#46420#0" expanded="true" />
-            <element signature="e#45576#45971#0" expanded="true" />
-            <element signature="e#45970#45971#0" expanded="true" />
-            <element signature="e#46419#46420#0" expanded="true" />
-            <element signature="e#46509#46510#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/CroppedImageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="108" column="79" lean-forward="false" selection-start-line="108" selection-start-column="79" selection-end-line="108" selection-end-column="79" />
+        <state relative-caret-position="424">
+          <caret line="107" column="30" lean-forward="false" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1519737430832" expanded="false" signature="8246:8261" ph=" { " />
-            <marker date="1519737430832" expanded="false" signature="8284:8294" ph=" }" />
+            <element signature="e#3131#5175#0" expanded="true" />
+            <element signature="e#5174#5175#0" expanded="true" />
+            <marker date="1519739809216" expanded="false" signature="9626:9641" ph=" { " />
+            <marker date="1519739809216" expanded="false" signature="9664:9674" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="1062" column="44" lean-forward="true" selection-start-line="1061" selection-start-column="22" selection-end-line="1062" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#15412#15658#0" expanded="true" />
+            <element signature="e#15657#15658#0" expanded="true" />
+            <element signature="e#41456#41457#0" expanded="true" />
+            <element signature="e#41491#41492#0" expanded="true" />
+            <element signature="e#44425#46486#0" expanded="true" />
+            <element signature="e#45277#46396#0" expanded="true" />
+            <element signature="e#45552#45947#0" expanded="true" />
+            <element signature="e#45946#45947#0" expanded="true" />
+            <element signature="e#46395#46396#0" expanded="true" />
+            <element signature="e#46485#46486#0" expanded="true" />
+            <marker date="1519742957693" expanded="false" signature="20239:20325" ph="() → {" />
+            <marker date="1519742957693" expanded="false" signature="20425:20448" ph="}" />
           </folding>
         </state>
       </provider>

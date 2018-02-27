@@ -59,7 +59,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
@@ -542,7 +542,7 @@ public class Camera2BasicFragment extends Fragment
          * @param text The message to show
          */
         private void showToast(final String text) {
-            final Activity activity = getActivity();
+            /*final Activity activity = getActivity();
             if (activity != null) {
                 activity.runOnUiThread(new Runnable() {
                     @Override
@@ -550,7 +550,7 @@ public class Camera2BasicFragment extends Fragment
                         Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
+            }*/
         }
 
         /**
