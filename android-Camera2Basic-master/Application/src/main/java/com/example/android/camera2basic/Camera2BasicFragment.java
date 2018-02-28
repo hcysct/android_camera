@@ -477,10 +477,12 @@ public class Camera2BasicFragment extends Fragment
             private void process(CaptureResult result) {
                 switch (mState) {
                     case STATE_PREVIEW: {
+                        Log.i("pic_capture","STATE_PREVIEW");
                         // We have nothing to do when the camera preview is working normally.
                         break;
                     }
                     case STATE_WAITING_LOCK: {
+                        Log.i("pic_capture","STATE_WAITING_LOCK");
                         Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
                         if (afState == null) {
                             captureStillPicture();
@@ -499,6 +501,7 @@ public class Camera2BasicFragment extends Fragment
                         break;
                     }
                     case STATE_WAITING_PRECAPTURE: {
+                        Log.i("pic_capture","STATE_WAITING_PRECAPTURE");
                         // CONTROL_AE_STATE can be null on some devices
                         Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                         if (aeState == null ||
@@ -509,6 +512,7 @@ public class Camera2BasicFragment extends Fragment
                         break;
                     }
                     case STATE_WAITING_NON_PRECAPTURE: {
+                        Log.i("pic_capture","STATE_WAITING_NON_PRECAPTURE");
                         // CONTROL_AE_STATE can be null on some devices
                         Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                         if (aeState == null || aeState != CaptureResult.CONTROL_AE_STATE_PRECAPTURE) {
@@ -1151,10 +1155,29 @@ public class Camera2BasicFragment extends Fragment
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.picture: {
-                    takePicture();
+
+                    List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
+                    BackgroundSquareDetector.cachedResult = points;
+
+                    FileOutputStream output = null;
+                    try {
+
+
+                        output = new FileOutputStream(mFile, false);
+                        mTextureView.getBitmap().compress(Bitmap.CompressFormat.JPEG, 100,output);
+                        Log.i("pic_capture","pic_saved");
+                        pictureSaved = true;
+                        redirectToCroppedImageActivity();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+                    //takePicture();
                     break;
                 }
-                case R.id.info: {
+                /*case R.id.info: {
                     Activity activity = getActivity();
                     if (null != activity) {
                         new AlertDialog.Builder(activity)
@@ -1163,7 +1186,7 @@ public class Camera2BasicFragment extends Fragment
                                 .show();
                     }
                     break;
-                }
+                }*/
             }
         }
 

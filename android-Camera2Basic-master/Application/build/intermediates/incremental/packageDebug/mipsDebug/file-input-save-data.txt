@@ -1,6 +1,6 @@
 #Internal package file, do not edit.
-#Tue Feb 27 15:05:56 CET 2018
-7.path=classes.dex
+#Wed Feb 28 11:27:45 CET 2018
+7.path=lib/x86_64/libopencv_java3.so
 2.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 5.set=NATIVE_RESOURCE
 0.path=lib/mips64/libopencv_java3.so
@@ -8,28 +8,28 @@
 3.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 7.baseType=DIRECTORY
 2.set=NATIVE_RESOURCE
-1.path=lib/mips/libopencv_java3.so
+1.path=classes.dex
 4.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
-7.set=DEX
+7.set=NATIVE_RESOURCE
 count=8
 5.baseType=DIRECTORY
-2.path=lib/armeabi/libopencv_java3.so
+2.path=lib/mips/libopencv_java3.so
 5.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 4.set=NATIVE_RESOURCE
-3.path=lib/x86/libopencv_java3.so
+3.path=lib/armeabi/libopencv_java3.so
 6.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 3.baseType=DIRECTORY
-1.set=NATIVE_RESOURCE
-4.path=lib/arm64-v8a/libopencv_java3.so
-7.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/dexMerger/debug/189
+1.set=DEX
+4.path=lib/x86/libopencv_java3.so
+7.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 6.set=NATIVE_RESOURCE
 1.baseType=DIRECTORY
 6.baseType=DIRECTORY
-5.path=lib/armeabi-v7a/libopencv_java3.so
+5.path=lib/arm64-v8a/libopencv_java3.so
 0.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 0.baseType=DIRECTORY
 3.set=NATIVE_RESOURCE
-6.path=lib/x86_64/libopencv_java3.so
-1.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
+6.path=lib/armeabi-v7a/libopencv_java3.so
+1.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/dexMerger/debug/208
 4.baseType=DIRECTORY
 0.set=NATIVE_RESOURCE
