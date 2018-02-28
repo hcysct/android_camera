@@ -123,7 +123,18 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
 
 
         rgbMat = new Mat();
-        rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
+        Utils.bitmapToMat(bmp, rgbMat);
+        greyMat = new Mat();
+        Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
+        PerspectiveTransformation perspective = new PerspectiveTransformation();
+        Mat dstMat = perspective.transform(greyMat, new MatOfPoint2f( scaledPoints ));
+
+        Mat temp = new Mat();
+
+        CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
+        clahe.apply(dstMat, temp);
+        Bitmap resultBitmap = matToBitmap(temp);
+        /*rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
         Utils.bitmapToMat(bmp, rgbMat);
         greyMat = new Mat();
         Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
@@ -148,10 +159,16 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         Bitmap out = Bitmap.createBitmap(temp.cols(), temp.rows(), Bitmap.Config.ARGB_8888);
         // Mat eqGS=new Mat();
         //Imgproc.equalizeHist(croppedMat, eqGS);
-        Utils.matToBitmap(temp, out);
-        bmp.recycle();
-        return out;
+        Utils.matToBitmap(temp, out);*/
+        //bmp.recycle();
+        return resultBitmap;
 
+    }
+
+    public static Bitmap matToBitmap(Mat mat) {
+        Bitmap bitmap = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(mat, bitmap);
+        return bitmap;
     }
 
     public Bitmap cropSquare(Bitmap bmp) {
