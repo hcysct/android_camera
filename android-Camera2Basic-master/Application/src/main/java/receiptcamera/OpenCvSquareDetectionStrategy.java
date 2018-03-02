@@ -14,6 +14,7 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.CLAHE;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.photo.Photo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,9 +22,11 @@ import java.util.Comparator;
 import java.util.List;
 
 import static org.opencv.core.CvType.CV_8UC1;
+import static org.opencv.core.CvType.CV_8UC3;
 import static org.opencv.core.CvType.CV_8UC4;
 import static org.opencv.imgproc.Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C;
 import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
+import static org.opencv.imgproc.Imgproc.MORPH_OPEN;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
 import static org.opencv.imgproc.Imgproc.THRESH_BINARY;
 
@@ -133,10 +136,18 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
 
         Mat temp = new Mat();
 
+        //CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
+        //clahe.apply(dstMat, temp);
+        Photo.fastNlMeansDenoising(dstMat, temp,3,7,21);
+
         CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
-        clahe.apply(dstMat, temp);
-        //Imgproc.adaptiveThreshold(temp, dstMat, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 115, 1);
-        Bitmap resultBitmap = matToBitmap(temp);
+        clahe.apply(temp, dstMat);
+        //Imgproc.adaptiveThreshold(temp,dstMat , 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 115, 1);
+
+        //kernel = Core.
+        temp.release();
+
+        Bitmap resultBitmap = matToBitmap(dstMat);
 
 
 

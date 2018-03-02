@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -167,13 +168,15 @@ public class CroppedImageActivity extends AppCompatActivity {
         Rect boundingBox = null;
         OpenCvSquareDetectionStrategy openCvSquareDetectionStrategy = new OpenCvSquareDetectionStrategy();
 
-        //result = openCvSquareDetectionStrategy.processCurrentFrame(src);
-        /*openCvSquareDetectionStrategy.release();
+        result = openCvSquareDetectionStrategy.processCurrentFrame(getResizedBitmap(src, src.getWidth() / 4, src.getHeight() / 4));
+        openCvSquareDetectionStrategy.release();
         if (result == null) {
+            Log.i("square_detection", "not found on taken image");
             result = BackgroundSquareDetector.cachedResult;
         } else {
-            scale = 1;
-        }*/
+            Log.i("square_detection", "found on taken image");
+            scale = 4;
+        }
         result = BackgroundSquareDetector.cachedResult;
         boundingBox = openCvSquareDetectionStrategy.getBoundingRect(result);
         float widthRatio = 1;
@@ -210,41 +213,6 @@ public class CroppedImageActivity extends AppCompatActivity {
         }
     }
 
-    static int calculateInSampleSize(int outWidth, int outHeight, int reqWidth, int reqHeight) {
-        int inSampleSize = 1;   //Default subsampling size
-        // See if image raw height and width is bigger than that of required view
-        if (outHeight > reqHeight || outWidth > reqWidth) {
-            //bigger
-            final int halfHeight = outHeight / 2;
-            final int halfWidth = outWidth / 2;
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) > reqHeight
-                    && (halfWidth / inSampleSize) > reqWidth) {
-                inSampleSize *= 2;
-            }
-        }
-        return inSampleSize;
-    }
-
-
-    /*public class CropReceiptTransformation implements Transformation {
-        @Override
-        public Bitmap transform(Bitmap source) {
-            OpenCvSquareDetectionStrategy openCvSquareDetectionStrategy = new OpenCvSquareDetectionStrategy();
-            Bitmap temp = getResizedBitmap(source, source.getWidth() / 2, source.getHeight() / 2);
-            Bitmap result = openCvSquareDetectionStrategy.cropSquare(temp);
-
-
-            //openCvSquareDetectionStrategy.release();
-            return result;
-        }
-
-        @Override
-        public String key() {
-            return "cropReceipt()";
-        }
-    }*/
 
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
@@ -259,7 +227,6 @@ public class CroppedImageActivity extends AppCompatActivity {
         // "RECREATE" THE NEW BITMAP
         Bitmap resizedBitmap = Bitmap.createBitmap(
                 bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
         return resizedBitmap;
     }
 

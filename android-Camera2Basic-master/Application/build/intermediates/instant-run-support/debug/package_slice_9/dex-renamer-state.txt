@@ -1,4 +1,4 @@
-#Fri Mar 02 14:01:16 CET 2018
-base.0=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/dexMerger/debug/86
+#Fri Mar 02 16:13:46 CET 2018
+base.0=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/dexMerger/debug/162
 path.0=classes.dex
 renamed.0=classes.dex

@@ -40,6 +40,7 @@ import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
+import android.hardware.camera2.params.MeteringRectangle;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
@@ -59,12 +60,14 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
@@ -98,8 +101,10 @@ public class Camera2BasicFragment extends Fragment
     //private ImageView scanImg;
     private QuadrilateralView quadrilateralReceiptView;
     private boolean pictureSaved;
-
+    private Button btnTakePicture;
     private BackgroundSquareDetector backgroundSquareDetector;
+    private OpenCvSquareDetectionStrategy openCvSquareDetectionStrategy;
+    private boolean isMeteringAreaAFSupported;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -618,13 +623,15 @@ public class Camera2BasicFragment extends Fragment
                                  Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_camera2_basic, container, false);
             quadrilateralReceiptView = (QuadrilateralView) v.findViewById(R.id.quadrilateralReceiptView);
-            backgroundSquareDetector = new BackgroundSquareDetector(new OpenCvSquareDetectionStrategy(), this);
+            openCvSquareDetectionStrategy = new OpenCvSquareDetectionStrategy();
+            backgroundSquareDetector = new BackgroundSquareDetector(openCvSquareDetectionStrategy, this);
             return v;
         }
 
         @Override
         public void onViewCreated(final View view, Bundle savedInstanceState) {
-            view.findViewById(R.id.picture).setOnClickListener(this);
+            btnTakePicture = (Button)view.findViewById(R.id.picture);
+            btnTakePicture.setOnClickListener(this);
             view.findViewById(R.id.info).setOnClickListener(this);
             mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
         }
@@ -657,6 +664,7 @@ public class Camera2BasicFragment extends Fragment
         public void onResume() {
             super.onResume();
             pictureSaved = false;
+            btnTakePicture.setEnabled(true);
             backgroundSquareDetector.startRunning();
             if (!OpenCVLoader.initDebug()) {
                 Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
@@ -724,6 +732,7 @@ public class Camera2BasicFragment extends Fragment
 
                     // We don't use a front facing camera in this sample.
                     Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+
                     if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
                         continue;
                     }
@@ -808,7 +817,7 @@ public class Camera2BasicFragment extends Fragment
                     // Check if the flash is supported.
                     Boolean available = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
                     mFlashSupported = available == null ? false : available;
-
+                    isMeteringAreaAFSupported = characteristics.get(CameraCharacteristics.CONTROL_MAX_REGIONS_AF) >= 1;
                     mCameraId = cameraId;
                     return;
                 }
@@ -1069,6 +1078,17 @@ public class Camera2BasicFragment extends Fragment
                 }
             };
 
+            List<MatOfPoint> result = backgroundSquareDetector.getSquareFindAlgorithmResult();
+            Rect boundingBox = openCvSquareDetectionStrategy.getBoundingRect(result);
+
+            if (isMeteringAreaAFSupported && boundingBox != null) {
+                MeteringRectangle focusAreaBoundingBox = new MeteringRectangle(boundingBox.x * PREVIEW_SCALE,
+                        boundingBox.y * PREVIEW_SCALE,
+                        boundingBox.width * PREVIEW_SCALE,
+                        boundingBox.height * PREVIEW_SCALE,
+                        MeteringRectangle.METERING_WEIGHT_MAX - 1);
+                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_REGIONS, new MeteringRectangle[]{focusAreaBoundingBox});
+            }
             //mCaptureSession.stopRepeating();
             //mCaptureSession.abortCaptures();
             mCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
@@ -1153,7 +1173,7 @@ public class Camera2BasicFragment extends Fragment
                         e.printStackTrace();
                     }*/
 
-
+                    btnTakePicture.setEnabled(false);
                     takePicture();
                     break;
                 }
