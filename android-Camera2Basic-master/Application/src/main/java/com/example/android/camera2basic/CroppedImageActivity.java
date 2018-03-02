@@ -3,22 +3,16 @@ package com.example.android.camera2basic;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.squareup.picasso.Transformation;
@@ -48,7 +42,7 @@ public class CroppedImageActivity extends AppCompatActivity {
     FrameLayout contianer;
     private Target target;
     String path;
-    int  scale;
+    int scale;
     int previewWidth;
     int previewHeight;
 
@@ -68,9 +62,6 @@ public class CroppedImageActivity extends AppCompatActivity {
 
 
         //int originalImageSampleSize = calculateInSampleSize(options.outWidth, options.outHeight);
-
-
-
 
 
         target = new Target() {
@@ -99,26 +90,23 @@ public class CroppedImageActivity extends AppCompatActivity {
         cropped_image.post(new Runnable() {
             @Override
             public void run() {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = false;
-                Bitmap bmp = BitmapFactory.decodeFile(path, options);
-                File f = new File(path);
-                Picasso.with(getBaseContext()).invalidate(f);
 
-                 Glide.with(getBaseContext())
+                File f = new File(path);
+
+                Glide.with(getBaseContext())
                         .load(f)
-                         .asBitmap()
-                         .override(contianer.getWidth(), contianer.getHeight())
-                         .diskCacheStrategy(DiskCacheStrategy.NONE)
-                         .skipMemoryCache(true)
-                         .into(new BitmapImageViewTarget(cropped_image) {
-                             @Override
-                             protected void setResource(Bitmap resource) {
-                                 // Do bitmap magic here
-                                 Bitmap bmp = processImage(resource, previewWidth, previewHeight, scale);
-                                 super.setResource(bmp);
-                             }
-                         });
+                        .asBitmap()
+                        .override(contianer.getWidth(), contianer.getHeight())
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                        .into(new BitmapImageViewTarget(cropped_image) {
+                            @Override
+                            protected void setResource(Bitmap resource) {
+                                // Do bitmap magic here
+                                Bitmap bmp = processImage(resource, previewWidth, previewHeight, scale);
+                                super.setResource(bmp);
+                            }
+                        });
                 /*if(options.outHeight > options.outWidth) {
                     Picasso.with(getBaseContext())
                             .load(f)
@@ -160,12 +148,16 @@ public class CroppedImageActivity extends AppCompatActivity {
     }
 
     public class CropRectangleTransformation implements Transformation {
-        @Override public Bitmap transform(Bitmap source) {
+        @Override
+        public Bitmap transform(Bitmap source) {
             Bitmap bmp = processImage(source, previewWidth, previewHeight, scale);
             return bmp;
         }
 
-        @Override public String key() { return "square()"; }
+        @Override
+        public String key() {
+            return "square()";
+        }
     }
 
     private Bitmap processImage(Bitmap src, int previewWidth, int previewHeight, int scale) {
@@ -175,6 +167,13 @@ public class CroppedImageActivity extends AppCompatActivity {
         Rect boundingBox = null;
         OpenCvSquareDetectionStrategy openCvSquareDetectionStrategy = new OpenCvSquareDetectionStrategy();
 
+        //result = openCvSquareDetectionStrategy.processCurrentFrame(src);
+        /*openCvSquareDetectionStrategy.release();
+        if (result == null) {
+            result = BackgroundSquareDetector.cachedResult;
+        } else {
+            scale = 1;
+        }*/
         result = BackgroundSquareDetector.cachedResult;
         boundingBox = openCvSquareDetectionStrategy.getBoundingRect(result);
         float widthRatio = 1;

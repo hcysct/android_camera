@@ -22,8 +22,10 @@ import java.util.List;
 
 import static org.opencv.core.CvType.CV_8UC1;
 import static org.opencv.core.CvType.CV_8UC4;
+import static org.opencv.imgproc.Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C;
 import static org.opencv.imgproc.Imgproc.CHAIN_APPROX_NONE;
 import static org.opencv.imgproc.Imgproc.RETR_EXTERNAL;
+import static org.opencv.imgproc.Imgproc.THRESH_BINARY;
 
 /**
  * Created by grzegorzbaczek on 16/02/2018.
@@ -133,7 +135,11 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
 
         CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
         clahe.apply(dstMat, temp);
+        //Imgproc.adaptiveThreshold(temp, dstMat, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 115, 1);
         Bitmap resultBitmap = matToBitmap(temp);
+
+
+
         /*rgbMat.create(bmp.getHeight(), bmp.getWidth(), CV_8UC4);
         Utils.bitmapToMat(bmp, rgbMat);
         greyMat = new Mat();

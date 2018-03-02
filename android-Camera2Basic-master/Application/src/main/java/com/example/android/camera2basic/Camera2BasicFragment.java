@@ -82,6 +82,8 @@ import java.util.concurrent.TimeUnit;
 import receiptcamera.BackgroundSquareDetector;
 import receiptcamera.OpenCvSquareDetectionStrategy;
 
+import static android.hardware.camera2.CameraMetadata.CONTROL_AF_STATE_INACTIVE;
+
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback, BackgroundSquareDetector.BackgroundSquareDetectorListener{
 
@@ -431,6 +433,7 @@ public class Camera2BasicFragment extends Fragment
 
             @Override
             public void onImageAvailable(ImageReader reader) {
+                Log.i(TAG, "OnImageAvailableListener");
                 mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
             }
 
@@ -484,7 +487,7 @@ public class Camera2BasicFragment extends Fragment
                     case STATE_WAITING_LOCK: {
                         Log.i("pic_capture","STATE_WAITING_LOCK");
                         Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                        if (afState == null) {
+                        if (afState == null || afState == CONTROL_AF_STATE_INACTIVE) {
                             captureStillPicture();
                         } else if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                                 CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) {
@@ -1033,86 +1036,63 @@ public class Camera2BasicFragment extends Fragment
          */
         Thread redirectThread;
 
-        private void captureStillPicture() {
-            try {
-                final Activity activity = getActivity();
-                if (null == activity || null == mCameraDevice) {
-                    return;
-                }
-                // This is the CaptureRequest.Builder that we use to take a picture.
-                final CaptureRequest.Builder captureBuilder =
-                        mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-                captureBuilder.addTarget(mImageReader.getSurface());
-
-                // Use the same AE and AF modes as the preview.
-                captureBuilder.set(CaptureRequest.CONTROL_AF_MODE,
-                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
-                setAutoFlash(captureBuilder);
-
-                // Orientation
-                int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-                captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getOrientation(rotation));
-
-                CameraCaptureSession.CaptureCallback CaptureCallback
-                        = new CameraCaptureSession.CaptureCallback() {
-
-                    @Override
-                    public void onCaptureCompleted(@NonNull CameraCaptureSession session,
-                                                   @NonNull CaptureRequest request,
-                                                   @NonNull TotalCaptureResult result) {
-
-                        showToast("Saved: " + mFile);
-                        Log.d(TAG, mFile.toString());
-                        unlockFocus();
-                        if(redirectThread != null){
-                            try {
-                                redirectThread.join();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        redirectThread = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                for(int i = 0; i < 6; i++){
-                                    if(pictureSaved){
-                                        mTextureView.post(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                Log.i("pic_capture","onCaptureCompleted");
-                                                redirectToCroppedImageActivity();
-                                            }
-                                        });
-                                        return;
-                                    }
-                                    try {
-                                        Thread.sleep(150);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-                        });
-                        redirectThread.start();
-                    }
-                };
-
-                mCaptureSession.stopRepeating();
-                mCaptureSession.abortCaptures();
-                mCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
+    private void captureStillPicture() {
+        try {
+            final Activity activity = getActivity();
+            if (null == activity || null == mCameraDevice) {
+                return;
             }
+            // This is the CaptureRequest.Builder that we use to take a picture.
+            final CaptureRequest.Builder captureBuilder =
+                    mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+            captureBuilder.addTarget(mImageReader.getSurface());
+
+            // Use the same AE and AF modes as the preview.
+            captureBuilder.set(CaptureRequest.CONTROL_AF_MODE,
+                    CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+            setAutoFlash(captureBuilder);
+
+            // Orientation
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getOrientation(rotation));
+
+            CameraCaptureSession.CaptureCallback CaptureCallback
+                    = new CameraCaptureSession.CaptureCallback() {
+
+                @Override
+                public void onCaptureCompleted(@NonNull CameraCaptureSession session,
+                                               @NonNull CaptureRequest request,
+                                               @NonNull TotalCaptureResult result) {
+                    showToast("Saved: " + mFile);
+                    Log.d(TAG, mFile.toString());
+                    unlockFocus();
+                }
+            };
+
+            //mCaptureSession.stopRepeating();
+            //mCaptureSession.abortCaptures();
+            mCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
         }
+    }
+
+
 
         private void redirectToCroppedImageActivity(){
-            Intent i = new Intent(getActivity(), CroppedImageActivity.class);
-            i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
-            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
-            i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
-            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
-            i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
-            startActivity(i);
+            mTextureView.post(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(getActivity(), CroppedImageActivity.class);
+                    i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+                    i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
+                    i.putExtra(CroppedImageActivity.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+                    i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
+                    i.putExtra(CroppedImageActivity.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
+                    startActivity(i);
+                }
+            });
+
         }
 
         /**
@@ -1156,7 +1136,7 @@ public class Camera2BasicFragment extends Fragment
             switch (view.getId()) {
                 case R.id.picture: {
 
-                    List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
+                   /* List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
                     BackgroundSquareDetector.cachedResult = points;
 
                     FileOutputStream output = null;
@@ -1171,10 +1151,10 @@ public class Camera2BasicFragment extends Fragment
 
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
+                    }*/
 
 
-                    //takePicture();
+                    takePicture();
                     break;
                 }
                 /*case R.id.info: {
@@ -1245,6 +1225,7 @@ public class Camera2BasicFragment extends Fragment
                     output.write(bytes);
                     Log.i("pic_capture","pic_saved");
                     pictureSaved = true;
+                    redirectToCroppedImageActivity();
 
                 } catch (IOException e) {
                     e.printStackTrace();
