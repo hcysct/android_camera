@@ -12,16 +12,21 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+
 android {
-    compileSdkVersion 27
+    compileSdkVersion 21
     buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 25
     }
 
+
+
     buildTypes {
+        api_stage.initWith(buildTypes.debug)
+        api_prod.initWith(buildTypes.debug)
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'

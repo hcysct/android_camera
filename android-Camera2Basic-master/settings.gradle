@@ -1,2 +1,1 @@
-include 'Application'
-include ':openCVLibrary340'
+include 'Application', ':smartcameralib', ':openCVLibrary340'

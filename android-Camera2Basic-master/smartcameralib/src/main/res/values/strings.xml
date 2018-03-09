@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SmartCameraLib</string>
+    <!--Camera-->
+    <string name="request_permission">Camera permission needed.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="use">Use</string>
+</resources>

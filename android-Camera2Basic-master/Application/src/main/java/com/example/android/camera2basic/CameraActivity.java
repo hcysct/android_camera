@@ -16,11 +16,35 @@
 
 package com.example.android.camera2basic;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-public class CameraActivity extends AppCompatActivity {
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.programming.android.sdu.smartcameralib.view.CameraFragment;
+import com.programming.android.sdu.smartcameralib.view.CustomCameraListener;
+import com.programming.android.sdu.smartcameralib.view.ImagePreviewFragment;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import static com.programming.android.sdu.smartcameralib.Constants.FROM_CAMERA_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.IMAGE_FILE_PATH;
+
+public class CameraActivity extends AppCompatActivity implements CustomCameraListener {
+
+    Handler handler = new Handler();
+    boolean usePhotoClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +52,131 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (null == savedInstanceState) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, Camera2BasicFragment.newInstance())
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, CameraFragment.newInstance())
                     .commit();
+        }
+    }
+
+
+
+    @Override
+    public void pictureTaken(final String filePath, final int scale, final int preview_width, final int preview_height) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                redirectToPicturePreviewFragment(filePath, true);
+                //customCameraPresenter.photoTaken(filePath);
+            }
+        });
+    }
+
+
+
+    public void redirectToPicturePreviewFragment(String filePath, boolean fromCamera) {
+        ImagePreviewFragment imagePreviewFragment = new ImagePreviewFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(IMAGE_FILE_PATH, filePath);
+        bundle.putBoolean(FROM_CAMERA_KEY, fromCamera);
+        imagePreviewFragment.setArguments(bundle);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+                .replace(R.id.container, imagePreviewFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+
+    @Override
+    public void crossClicked() {
+        onBackPressed();
+    }
+
+    @Override
+    public void galleryClicked() {
+        //customCameraPresenter.choosePhotoFromExternalStorage();
+    }
+
+    @Override
+    public void useGalleryPhotoClicked(String path) {
+        /*usePhotoClicked = true;
+        final long originalFileSize = getFolderSize(new File(path));
+        Log.i("img_preview", String.format("file size %d Kb, file %s", getFolderSize(new File(path)), path));
+        Glide.with(this)
+                .load(new File(path))
+                .asBitmap()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                //.override(Target.SIZE_ORIGINAL, getResources().getInteger(R.integer.maxReceiptHeight))
+                .into(new SimpleTarget<Bitmap>( getResources().getInteger(R.integer.maxReceiptWidth), getResources().getInteger(R.integer.maxReceiptHeight)) {
+                    @Override
+                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                        Log.i("img_preview", String.format("file size after loading %d Kb", resource.getByteCount() / 1024, resource.getConfig()));
+
+                        FileOutputStream out = null;
+                        try {
+                            File compressed  = new File(getExternalFilesDir(null), "pic_resized.jpg");
+                            out = new FileOutputStream(compressed);
+                            resource.compress(Bitmap.CompressFormat.JPEG, (int)(200f/originalFileSize * 100), out); // bmp is your Bitmap instance
+                            Log.i("img_preview", String.format("compressed file size %d Kb", getFolderSize(compressed), path));
+
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                            resource = BitmapFactory.decodeFile(compressed.getAbsolutePath(), options);
+                            // PNG is a lossless format, the compression factor (100) is ignored
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            try {
+                                if (out != null) {
+                                    out.close();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        customCameraPresenter.useClicked(resource);
+                    }
+                });*/
+    }
+
+
+
+    public static long getFolderSize(File f) {
+        long size = 0;
+        if (f.isDirectory()) {
+            for (File file : f.listFiles()) {
+                size += getFolderSize(file);
+            }
+        } else {
+            size=f.length();
+        }
+        return size / 1024;
+    }
+
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        /*if (!hasCameraPermission()) {
+            finish();
+        }*/
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!usePhotoClicked) {
+            FragmentManager fm = getSupportFragmentManager();
+            if (fm.getBackStackEntryCount() > 0) {
+                fm.popBackStack();
+            } else {
+                super.onBackPressed();
+                overridePendingTransition(R.anim.hold, R.anim.popup_hide);
+            }
         }
     }
 

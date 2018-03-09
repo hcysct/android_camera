@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Application" />
             <option value="$PROJECT_DIR$/openCVLibrary340" />
+            <option value="$PROJECT_DIR$/smartcameralib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,0 +1,113 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="progress_dialog_padding">20dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_huge">34sp</dimen>
+    <dimen name="text_size_header">20sp</dimen>
+    <dimen name="text_size_card_details_header">34sp</dimen>
+    <!--card details-->
+    <dimen name="small_card_width">100dp</dimen>
+    <dimen name="small_card_height">63dp</dimen>
+    <dimen name="large_card_width">284.4dp</dimen>
+    <dimen name="large_card_width_plus_padding">304.4dp</dimen>
+    <dimen name="large_card_height">179dp</dimen>
+    <dimen name="card_corner_radius">7dp</dimen>
+    <dimen name="my_trip_image_radius">5dp</dimen>
+    <dimen name="card_screen_top_margin">60dp</dimen>
+    <dimen name="header_height">52dp</dimen>
+    <dimen name="bottom_navigation_height">60dp</dimen>
+
+    <!--my trips-->
+    <dimen name="my_trip_item_side_margin">16dp</dimen>
+    <dimen name="my_trip_cell_height">150dp</dimen>
+    <!-- Cards -->
+    <dimen name="card_page_padding">100dp</dimen>
+    <item name="small_card_scale" format="float" type="dimen">0.35</item>
+    <!-- Text size-->
+    <dimen name="expense_item_text_size_big">16sp</dimen>
+
+    <dimen name="font_text_small">10sp</dimen>
+    <dimen name="font_text_medium">14sp</dimen>
+    <dimen name="font_text_large">18sp</dimen>
+
+    <dimen name="font_text_medium_acc">12sp</dimen>
+
+    <dimen name="delete_btn_size">28dp</dimen>
+
+
+    <!-- Base header -->
+
+    <!-- Expenses search -->
+    <dimen name="filter_height">75dp</dimen>
+    <dimen name="search_fields_container">50dp</dimen>
+    <dimen name="search_fields_and_filter_height">125dp</dimen>
+
+    <!-- Buttons -->
+
+    <!-- Login -->
+
+    <!-- Expense item -->
+    <dimen name="expense_add_view_bottom_list_item_padding">15dp</dimen>
+
+    <!-- Hamburger menu -->
+
+    <!--Forgot password-->
+
+    <!-- List item -->
+
+    <dimen name="status_indicator_title_margin_top">5dp</dimen>
+
+
+    <!--Add expense-->
+    <dimen name="add_expense_global_margin">15dp</dimen>
+    <dimen name="receipt_picture_margin">-500dp</dimen>
+    <dimen name="collapsed_form_appBar_height">65dp</dimen>
+    <dimen name="collapsed_my_trips_appBar_height">61dp</dimen>
+    <dimen name="collapsed_settings_appBar_height">150dp</dimen>
+    <dimen name="editText_height">50dp</dimen>
+
+    <!-- Error dialog-->
+    <dimen name="error_dialog_title_padding">15dp</dimen>
+    <dimen name="error_dialog_title_padding_left">20dp</dimen>
+
+    <!--Expenses-->
+    <dimen name="expensesDotsContainerHeight">28dp</dimen>
+    <dimen name="tabMargin">6dp</dimen>
+    <dimen name="btnCloseWidth">54dp</dimen>
+    <dimen name="cardPagerHeight">73dp</dimen>
+    <dimen name="cardPageWidth">110dp</dimen>
+    <dimen name="minCardPagerContainerHeight">118dp</dimen>
+    <dimen name="searchButtonPushDistance">100dp</dimen>
+    <dimen name="cardInfoHeight">80dp</dimen>
+    <dimen name="expenseMonthSummaryMargin">16dp</dimen>
+    <dimen name="collapsedSummaryMargin">24dp</dimen>
+    <dimen name="showpdfMargin">28dp</dimen>
+    <dimen name="swipeButtonWidth">78dp</dimen>
+    <dimen name="existingOtherExpenseBottomMargin">140dp</dimen>
+    <dimen name="expenseBottomMargin">90dp</dimen>
+    <item name="show_receipt_pricture_percent" format="float" type="dimen">0.30</item>
+
+    <!--AdEditExpenses-->
+    <dimen name="collapsedImageVisibleHeight">55dp</dimen>
+
+    <!-- Cards screen -->
+
+    <dimen name="card_details_button_width">125dp</dimen>
+    <dimen name="card_details_button_height">70dp</dimen>
+
+    <dimen name="report_next_button_height">50dp</dimen>
+
+
+    <!-- Reports -->
+    <dimen name="text_size_report_header">34sp</dimen>
+    <dimen name="text_size_report_header_small">22sp</dimen>
+
+    <!-- Bottom Menu -->
+    <dimen name="menu_header_height">60dp</dimen>
+    <dimen name="menu_row_height">50dp</dimen>
+    <dimen name="menu_shadow_height">4dp</dimen>
+</resources>

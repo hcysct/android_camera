@@ -4,7 +4,7 @@
             "outputFile": "/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/85f896f817a59d3f4fce180fc3e63547/res/values-v24/values-v24.xml",
+                    "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/df9dde7dfb8a7a4d025e5be4a7d8d042/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/46fcaa63ce379ca174e71c5fcbf4934f/res/values-v24/values-v24.xml",
+                    "source": "/Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c97da53f8b0b287ab8b8ae58da88de62/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

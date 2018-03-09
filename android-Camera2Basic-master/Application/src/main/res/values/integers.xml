@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="popupAnimationMs">300</integer>
+    <integer name="slideInSlideOutPictureAnimation">500</integer>
+    <integer name="expandCollapseExpenseMs">500</integer>
+    <integer name="expenseCollapseDelayMs">500</integer>
+    <integer name="fragmentEnterLeaveAnimationMs">300</integer>
+    <integer name="maxReceiptWidth">720</integer>
+    <integer name="maxReceiptHeight">960</integer>
+    <integer name="logInExpenseLoadMonthsBack">2</integer>
+    <integer name="backgroundLoadMonthsBack">12</integer>
+    <integer name="sessionCookieRefreshSec">570</integer>
+    <integer name="corporateExpensesRefreshDays">90</integer>
+</resources>
