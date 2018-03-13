@@ -111,28 +111,22 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
         points.get(3).x -= bitmapBoundingRect.left;
         points.get(3).y -= bitmapBoundingRect.top;
 
-
         Point[] scaledPoints = new Point[4];
         scaledPoints[0] = points.get(0);
         scaledPoints[1] = points.get(1);
         scaledPoints[2] = points.get(2);
         scaledPoints[3] = points.get(3);
-        List<MatOfPoint> scaledMatOfPoints = new ArrayList<>();
-        scaledMatOfPoints.add(new MatOfPoint(scaledPoints));
-
 
         rgbMat = new Mat();
         Utils.bitmapToMat(bmp, rgbMat);
         greyMat = new Mat();
         Imgproc.cvtColor(rgbMat, greyMat, Imgproc.COLOR_RGB2GRAY);
         PerspectiveTransformation perspective = new PerspectiveTransformation();
-        Mat dstMat = perspective.transform(greyMat, new MatOfPoint2f( scaledPoints ));
-
+        Mat dstMat = perspective.transform(greyMat, new MatOfPoint2f(scaledPoints));
         Mat temp = new Mat();
 
-
         //removing noise
-        Photo.fastNlMeansDenoising(dstMat, temp,3,7,21);
+        Photo.fastNlMeansDenoising(dstMat, temp, 3, 7, 21);
         //histogram optimalization
         CLAHE clahe = Imgproc.createCLAHE(2.0, new Size(8, 8));
         clahe.apply(temp, dstMat);
@@ -212,9 +206,9 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
     public Bitmap tryExtractingReceipt(Bitmap src, int previewWidth, int previewHeight, int scale) {
         List<MatOfPoint> result = null;
         Rect boundingBox = null;
-        OpenCvSquareDetectionStrategy openCvSquareDetectionStrategy = new OpenCvSquareDetectionStrategy();
-        result = openCvSquareDetectionStrategy.processCurrentFrame(getResizedBitmap(src, src.getWidth() / 4, src.getHeight() / 4));
-        openCvSquareDetectionStrategy.release();
+
+        result = processCurrentFrame(getResizedBitmap(src, src.getWidth() / 4, src.getHeight() / 4));
+        release();
         if (result == null) {
             Log.i("square_detection", "not found on taken image");
             result = BackgroundSquareDetector.cachedResult;
@@ -222,28 +216,38 @@ public class OpenCvSquareDetectionStrategy implements SquareDetectionStrategy {
             Log.i("square_detection", "found on taken image");
             scale = 4;
         }
-        result = BackgroundSquareDetector.cachedResult;
-        boundingBox = openCvSquareDetectionStrategy.getBoundingRect(result);
-        float widthRatio = 1;
-        float heightRatio = 1;
-        if (boundingBox != null) {
+        Bitmap result_bmp = extractingReceipt(src, previewWidth, previewHeight, scale, result);
+        if(result_bmp != null){
+            return result_bmp;
+        } else {
+            return src;
+        }
+    }
+
+    @Override
+    public Bitmap extractingReceipt(Bitmap src, int previewWidth, int previewHeight, int scale, List<MatOfPoint> vertices) {
+        Rect boundingBox = null;
+        boundingBox = getBoundingRect(vertices);
+        if(boundingBox != null) {
+            float widthRatio = 1;
+            float heightRatio = 1;
+            //scale bounding box
             widthRatio = ((float) src.getWidth()) / previewWidth;
             heightRatio = ((float) src.getHeight()) / previewHeight;
             boundingBox.x = (int) (boundingBox.x * scale * widthRatio);
             boundingBox.y = (int) (boundingBox.y * scale * heightRatio);
             boundingBox.width = (int) (boundingBox.width * scale * widthRatio);
             boundingBox.height = (int) (boundingBox.height * scale * heightRatio);
-        }
-        if (boundingBox != null) {
             android.graphics.Rect r = new android.graphics.Rect(boundingBox.x, boundingBox.y, boundingBox.x + boundingBox.width, boundingBox.y + boundingBox.height);
+            //we don't need the whole image so we crop the rectangle containing the area of intrest
             Bitmap croped = Bitmap.createBitmap(src, r.left, r.top, r.width(), r.height());
-            src.recycle();
-            Bitmap enhanced = openCvSquareDetectionStrategy.cropQuadrilateral(croped, result, r, scale, widthRatio, heightRatio);
+            //src.recycle();
+            Bitmap enhanced = cropQuadrilateral(croped, vertices, r, scale, widthRatio, heightRatio);
             croped.recycle();
             return enhanced;
-
-        } else {
-            return src;
+        }
+        else{
+            return null;
         }
     }
 

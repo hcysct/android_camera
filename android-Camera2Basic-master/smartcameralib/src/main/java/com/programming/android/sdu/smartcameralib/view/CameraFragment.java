@@ -98,10 +98,6 @@ import static android.hardware.camera2.CameraMetadata.CONTROL_AF_STATE_INACTIVE;
 
 public class CameraFragment extends Fragment
         implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback, BackgroundSquareDetector.BackgroundSquareDetectorListener{
-
-
-
-
     /**
      * Conversion from screen rotation to JPEG orientation.
      */
@@ -1166,8 +1162,8 @@ public class CameraFragment extends Fragment
 
 
 
-        private void redirectToCroppedImageActivity(){
-            ((CustomCameraListener)getActivity()).pictureTaken(mFile.getAbsolutePath(), PREVIEW_SCALE,mTextureView.getWidth(),  mTextureView.getHeight());
+        private void redirectToCroppedImageActivity( List<MatOfPoint> points, int scale,  int width, int height){
+            ((CustomCameraListener)getActivity()).pictureTaken(mFile.getAbsolutePath(), scale, width, height, points);
         }
 
         /**
@@ -1262,7 +1258,6 @@ public class CameraFragment extends Fragment
              * The JPEG image
              */
             private final Image mImage;
-            private AsyncTaskRunner asyncTaskRunner;
             /**
              * The file we save the image into.
              */
@@ -1275,14 +1270,14 @@ public class CameraFragment extends Fragment
 
             @Override
             public void run() {
-
+                boolean fileSaved = false;
                 ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
                 /*mImage.getWidth();
-                Intent i = new Intent(getActivity(), ImagePreviewFragment.class);
-                i.putExtra(ImagePreviewFragment.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
-                i.putExtra(ImagePreviewFragment.IMAGE_FILE_PATH, mFile.getAbsolutePath());
-                i.putExtra(ImagePreviewFragment.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
-                i.putExtra(ImagePreviewFragment.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
+                Intent i = new Intent(getActivity(), CropImageFragment.class);
+                i.putExtra(CropImageFragment.IMAGE_PREVIEW_SCALE_KEY, PREVIEW_SCALE);
+                i.putExtra(CropImageFragment.IMAGE_FILE_PATH, mFile.getAbsolutePath());
+                i.putExtra(CropImageFragment.IMAGE_PREVIEW_WIDTH_KEY, mTextureView.getWidth());
+                i.putExtra(CropImageFragment.IMAGE_PREVIEW_HEIGHT_KEY, mTextureView.getHeight());
 
                 List<MatOfPoint> points = backgroundSquareDetector.getSquareFindAlgorithmResult();
                 BackgroundSquareDetector.cachedResult = points;*/
@@ -1301,8 +1296,8 @@ public class CameraFragment extends Fragment
                     output = new FileOutputStream(mFile, false);
                     output.write(bytes);
                     Log.i("pic_capture","pic_saved");
-                    asyncTaskRunner = new AsyncTaskRunner();
-                    asyncTaskRunner.execute(mFile.getAbsolutePath());
+                    fileSaved = true;
+                    processImage();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -1398,55 +1393,60 @@ public class CameraFragment extends Fragment
         }
 
 
-
-
-
-    private class AsyncTaskRunner extends AsyncTask<String, String, Boolean> {
-            @Override
-            protected Boolean doInBackground(String... params) {
-                try {
-                    String filePath = params[0];
-                    File f = new File(filePath);
-                    Bitmap resource = Glide.with(getActivity())
-                            .load(f)
-                            .asBitmap()
-                            .diskCacheStrategy(DiskCacheStrategy.NONE)
-                            .skipMemoryCache(true)
-                            .into(mTextureView.getWidth(),  mTextureView.getHeight())
-                            .get();
-                    SquareDetectionStrategy strategy = new OpenCvSquareDetectionStrategy();
-                    Bitmap bmp = strategy.tryExtractingReceipt(resource, mTextureView.getWidth(),  mTextureView.getHeight(), PREVIEW_SCALE);
-                    BitmapUtils.saveToFile(mFile, bmp, 100);
-                    bmp.recycle();
-                    BitmapUtils.resizeToMaxSize(mFile.getAbsolutePath(), mFile.getAbsolutePath());
-                    strategy.release();
-                    resource.recycle();
-                    if(!bmp.isRecycled()){
-                        bmp.recycle();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    return false;
-
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-                return true;
-            }
-
-            @Override
-            protected void onPostExecute(Boolean result) {
-                redirectToCroppedImageActivity();
-                dismissProgressDialog();
-            }
-
-
-            @Override
-            protected void onPreExecute() {
-                showProgressDialog();
-            }
-        }
+    public static void saveToFile(File file,Bitmap bmp) {
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+        } catch(Exception e) {}
     }
+
+    private void processImage(){
+        List<MatOfPoint> points = null;
+        try {
+            showProgressDialog();
+            Bitmap bmp = Glide.with(getActivity())
+                    .load(mFile)
+                    .asBitmap()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .into(mTextureView.getWidth() / PREVIEW_SCALE,  mTextureView.getHeight() / PREVIEW_SCALE)
+                    .get();
+            SquareDetectionStrategy strategy = new OpenCvSquareDetectionStrategy();
+            //points =  BackgroundSquareDetector.cachedResult;
+            points = strategy.processCurrentFrame(bmp);
+            if(points == null){
+                points =  BackgroundSquareDetector.cachedResult;
+                redirectToCroppedImageActivity(points, PREVIEW_SCALE,mTextureView.getWidth(),  mTextureView.getHeight());
+            }
+            else{
+                redirectToCroppedImageActivity(points, 1,bmp.getWidth(),  bmp.getHeight());
+            }
+            /*Bitmap bmp = strategy.tryExtractingReceipt(resource, mTextureView.getWidth(),  mTextureView.getHeight(), PREVIEW_SCALE);
+            BitmapUtils.saveToFile(mFile, bmp, 100);
+            bmp.recycle();
+            BitmapUtils.resizeToMaxSize(mFile.getAbsolutePath(), mFile.getAbsolutePath());
+            strategy.release();
+            resource.recycle();
+            if(!bmp.isRecycled()){
+                bmp.recycle();
+            }*/
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+
+        }
+        finally {
+            dismissProgressDialog();
+        }
+
+    }
+
+
+}
 
 

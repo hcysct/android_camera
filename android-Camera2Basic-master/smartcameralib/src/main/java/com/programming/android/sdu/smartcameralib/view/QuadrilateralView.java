@@ -45,7 +45,7 @@ public class QuadrilateralView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Paint wallpaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Paint linepaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         canvas.drawColor(Color.TRANSPARENT);
         if (squarePoints != null) {
             Path wallpath = new Path();
@@ -57,11 +57,11 @@ public class QuadrilateralView extends View {
             wallpath.lineTo((float) squarePoints.get(3).x * scale, (float) squarePoints.get(3).y * scale);
             wallpath.lineTo((float) squarePoints.get(0).x * scale, (float) squarePoints.get(0).y * scale);
 
-            wallpaint.setStrokeWidth(5);
-            wallpaint.setPathEffect(null);
-            wallpaint.setColor(Color.GREEN);
-            wallpaint.setStyle(Paint.Style.STROKE);
-            canvas.drawPath(wallpath, wallpaint);
+            linepaint.setStrokeWidth(5);
+            linepaint.setPathEffect(null);
+            linepaint.setColor(Color.GREEN);
+            linepaint.setStyle(Paint.Style.STROKE);
+            canvas.drawPath(wallpath, linepaint);
         }
     }
 

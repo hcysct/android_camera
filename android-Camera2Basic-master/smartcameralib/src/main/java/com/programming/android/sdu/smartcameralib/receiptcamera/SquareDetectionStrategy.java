@@ -15,5 +15,6 @@ public interface SquareDetectionStrategy {
     List<MatOfPoint> processCurrentFrame(Mat grey);
     List<MatOfPoint> processCurrentFrame(Bitmap bmp);
     Bitmap tryExtractingReceipt(Bitmap src, int previewWidth, int previewHeight, int scale);
+    Bitmap extractingReceipt(Bitmap src, int previewWidth, int previewHeight, int scale, List<MatOfPoint> vertices);
     void release();
 }

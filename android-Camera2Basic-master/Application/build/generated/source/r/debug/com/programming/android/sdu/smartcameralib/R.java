@@ -671,7 +671,7 @@ public final class R {
         public static final int title_template = 0x7f07007f;
         public static final int top = 0x7f070080;
         public static final int topPanel = 0x7f070081;
-        public static final int tvChangePicture = 0x7f070082;
+        public static final int tvUsePicture = 0x7f070082;
         public static final int up = 0x7f070084;
         public static final int useLogo = 0x7f070085;
         public static final int withText = 0x7f070086;
@@ -710,8 +710,8 @@ public final class R {
         public static final int abc_search_dropdown_item_icons_2line = 0x7f090017;
         public static final int abc_search_view = 0x7f090018;
         public static final int abc_select_dialog_material = 0x7f090019;
-        public static final int fragment_camera = 0x7f09001c;
-        public static final int img_preview_fragment = 0x7f09001e;
+        public static final int crop_img_fragment = 0x7f09001b;
+        public static final int fragment_camera = 0x7f09001d;
         public static final int notification_action = 0x7f09001f;
         public static final int notification_action_tombstone = 0x7f090020;
         public static final int notification_media_action = 0x7f090021;
@@ -727,11 +727,12 @@ public final class R {
         public static final int notification_template_media_custom = 0x7f09002b;
         public static final int notification_template_part_chronometer = 0x7f09002c;
         public static final int notification_template_part_time = 0x7f09002d;
-        public static final int progress_dialog = 0x7f09002e;
-        public static final int select_dialog_item_material = 0x7f09002f;
-        public static final int select_dialog_multichoice_material = 0x7f090030;
-        public static final int select_dialog_singlechoice_material = 0x7f090031;
-        public static final int support_simple_spinner_dropdown_item = 0x7f090032;
+        public static final int preview_img_fragment = 0x7f09002e;
+        public static final int progress_dialog = 0x7f09002f;
+        public static final int select_dialog_item_material = 0x7f090030;
+        public static final int select_dialog_multichoice_material = 0x7f090031;
+        public static final int select_dialog_singlechoice_material = 0x7f090032;
+        public static final int support_simple_spinner_dropdown_item = 0x7f090033;
     }
     public static final class string {
         public static final int abc_action_bar_home_description = 0x7f0a0000;
@@ -765,10 +766,12 @@ public final class R {
         public static final int abc_toolbar_collapse_description = 0x7f0a001c;
         public static final int app_name = 0x7f0a001d;
         public static final int camera_error = 0x7f0a001e;
-        public static final int request_permission = 0x7f0a0022;
-        public static final int search_menu_title = 0x7f0a0023;
-        public static final int status_bar_notification_info_overflow = 0x7f0a0024;
-        public static final int use = 0x7f0a0025;
+        public static final int crop = 0x7f0a001f;
+        public static final int crop_error = 0x7f0a0020;
+        public static final int request_permission = 0x7f0a0024;
+        public static final int search_menu_title = 0x7f0a0025;
+        public static final int status_bar_notification_info_overflow = 0x7f0a0026;
+        public static final int use = 0x7f0a0027;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f0b0000;

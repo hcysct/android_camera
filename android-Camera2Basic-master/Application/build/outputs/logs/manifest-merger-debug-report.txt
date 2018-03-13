@@ -6,6 +6,7 @@ MERGED from [com.android.support:support-v4:27.0.2] /Users/grzegorzbaczek/.gradl
 MERGED from [com.android.support:cardview-v7:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/b02dd97860a514ba5d89cf806ce0fde3/AndroidManifest.xml:17:1-22:12
 MERGED from [:smartcameralib] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/smartcameralib/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/df9dde7dfb8a7a4d025e5be4a7d8d042/AndroidManifest.xml:17:1-22:12
+MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-media-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c97da53f8b0b287ab8b8ae58da88de62/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/61597b43221d07320fda4500dc7e93f1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/2a8b2ab09b4852fe58fafdceac5e0b9e/AndroidManifest.xml:17:1-22:12
@@ -13,7 +14,6 @@ MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/grzegor
 MERGED from [com.android.support:support-core-ui:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/1e6ce8d436e057462f0634617f6ba18f/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/d4266a0ac90d7b3af56030aea1415d24/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/e4caa08b1cd2a2e7f4f285de62b1bd89/AndroidManifest.xml:17:1-22:12
-MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/4c68e5c2b1da6e1c7cbb03a951b501c6/AndroidManifest.xml:17:1-24:12
 	package
 		ADDED from /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml:19:5-47
@@ -77,6 +77,8 @@ MERGED from [:smartcameralib] /Users/grzegorzbaczek/funProjects/camera/android-C
 MERGED from [:smartcameralib] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/smartcameralib/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/df9dde7dfb8a7a4d025e5be4a7d8d042/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/df9dde7dfb8a7a4d025e5be4a7d8d042/AndroidManifest.xml:20:5-44
+MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-media-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c97da53f8b0b287ab8b8ae58da88de62/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c97da53f8b0b287ab8b8ae58da88de62/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/61597b43221d07320fda4500dc7e93f1/AndroidManifest.xml:20:5-44
@@ -91,8 +93,6 @@ MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/grzegorz
 MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/d4266a0ac90d7b3af56030aea1415d24/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/e4caa08b1cd2a2e7f4f285de62b1bd89/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.0.2] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/e4caa08b1cd2a2e7f4f285de62b1bd89/AndroidManifest.xml:20:5-44
-MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:openCVLibrary340] /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/openCVLibrary340/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/4c68e5c2b1da6e1c7cbb03a951b501c6/AndroidManifest.xml:20:5-22:41
 MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/grzegorzbaczek/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/4c68e5c2b1da6e1c7cbb03a951b501c6/AndroidManifest.xml:20:5-22:41
 INJECTED from /Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/src/main/AndroidManifest.xml

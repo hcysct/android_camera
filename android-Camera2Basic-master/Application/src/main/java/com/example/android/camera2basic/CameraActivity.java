@@ -16,30 +16,36 @@
 
 package com.example.android.camera2basic;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.programming.android.sdu.smartcameralib.view.CameraFragment;
+import com.programming.android.sdu.smartcameralib.view.CropImageFragment;
 import com.programming.android.sdu.smartcameralib.view.CustomCameraListener;
-import com.programming.android.sdu.smartcameralib.view.ImagePreviewFragment;
+import com.programming.android.sdu.smartcameralib.view.PreviewImgFragment;
+
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.List;
 
 import static com.programming.android.sdu.smartcameralib.Constants.FROM_CAMERA_KEY;
 import static com.programming.android.sdu.smartcameralib.Constants.IMAGE_FILE_PATH;
+import static com.programming.android.sdu.smartcameralib.Constants.IMAGE_PREVIEW_HEIGHT_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.IMAGE_PREVIEW_SCALE_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.IMAGE_PREVIEW_WIDTH_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P1_X_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P1_Y_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P2_X_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P2_Y_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P3_X_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P3_Y_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P4_X_KEY;
+import static com.programming.android.sdu.smartcameralib.Constants.P4_Y_KEY;
 
 public class CameraActivity extends AppCompatActivity implements CustomCameraListener {
 
@@ -59,35 +65,38 @@ public class CameraActivity extends AppCompatActivity implements CustomCameraLis
         }
     }
 
-
-
-    @Override
-    public void pictureTaken(final String filePath, final int scale, final int preview_width, final int preview_height) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                redirectToPicturePreviewFragment(filePath, true);
-                //customCameraPresenter.photoTaken(filePath);
-            }
-        });
-    }
-
-
-
-    public void redirectToPicturePreviewFragment(String filePath, boolean fromCamera) {
-        ImagePreviewFragment imagePreviewFragment = new ImagePreviewFragment();
+    public void redirectToPicturePreviewFragment(String filePath, boolean fromCamera, int previewWidth, int previewHeight, int scale, List<MatOfPoint> points) {
+        CropImageFragment cropImageFragment = new CropImageFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(IMAGE_FILE_PATH, filePath);
-        bundle.putBoolean(FROM_CAMERA_KEY, fromCamera);
-        imagePreviewFragment.setArguments(bundle);
+
+        /*
+        public static final String IMAGE_PREVIEW_WIDTH_KEY = "IMAGE_PREVIEW_WIDTH_KEY";
+        public static final String IMAGE_PREVIEW_HEIGHT_KEY = "IMAGE_PREVIEW_HEIGHT_KEY";
+        public static final String IMAGE_PREVIEW_SCALE_KEY = "IMAGE_PREVIEW_SCALE_KEY";
+        */
+        putImageInfoInBundle(filePath, fromCamera, previewWidth, previewHeight, scale, points, bundle);
+        cropImageFragment.setArguments(bundle);
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
-                .replace(R.id.container, imagePreviewFragment)
+                .replace(R.id.container, cropImageFragment)
                 .addToBackStack(null)
                 .commit();
     }
 
+
+
+
+    @Override
+    public void pictureTaken(final String filePath, final int scale, final int preview_width, final int preview_height, final List<MatOfPoint> points) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                redirectToPicturePreviewFragment(filePath, true, preview_width,  preview_height, scale,points );
+                //customCameraPresenter.photoTaken(filePath);
+            }
+        });
+    }
 
     @Override
     public void crossClicked() {
@@ -142,6 +151,19 @@ public class CameraActivity extends AppCompatActivity implements CustomCameraLis
                 });*/
     }
 
+    @Override
+    public void cropPictureClicked(String filePath, boolean fromCamera, int scale, int previewWidth, int previewHeight, List<MatOfPoint> points) {
+        PreviewImgFragment previewImgFragment = new PreviewImgFragment();
+        Bundle bundle = new Bundle();
+        putImageInfoInBundle(filePath, fromCamera, previewWidth, previewHeight, scale, points, bundle);
+        previewImgFragment.setArguments(bundle);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
+                .replace(R.id.container, previewImgFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 
 
     public static long getFolderSize(File f) {
@@ -177,6 +199,28 @@ public class CameraActivity extends AppCompatActivity implements CustomCameraLis
                 super.onBackPressed();
                 overridePendingTransition(R.anim.hold, R.anim.popup_hide);
             }
+        }
+    }
+
+    private void putImageInfoInBundle(String filePath, boolean fromCamera, int previewWidth, int previewHeight, int scale, List<MatOfPoint> points, Bundle bundle) {
+        bundle.putString(IMAGE_FILE_PATH, filePath);
+        bundle.putBoolean(FROM_CAMERA_KEY, fromCamera);
+        bundle.putInt(IMAGE_PREVIEW_WIDTH_KEY, previewWidth);
+        bundle.putInt(IMAGE_PREVIEW_HEIGHT_KEY, previewHeight);
+        bundle.putInt(IMAGE_PREVIEW_SCALE_KEY, scale);
+        if(points != null){
+            List<Point> pts = points.get(0).toList();
+            bundle.putDouble(P1_X_KEY, pts.get(0).x);
+            bundle.putDouble(P1_Y_KEY, pts.get(0).y);
+
+            bundle.putDouble(P2_X_KEY, pts.get(1).x);
+            bundle.putDouble(P2_Y_KEY, pts.get(1).y);
+
+            bundle.putDouble(P3_X_KEY, pts.get(2).x);
+            bundle.putDouble(P3_Y_KEY, pts.get(2).y);
+
+            bundle.putDouble(P4_X_KEY, pts.get(3).x);
+            bundle.putDouble(P4_Y_KEY, pts.get(3).y);
         }
     }
 
