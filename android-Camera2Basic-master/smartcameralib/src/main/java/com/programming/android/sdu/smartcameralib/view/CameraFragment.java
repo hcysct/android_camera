@@ -53,6 +53,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -83,8 +84,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -703,7 +706,9 @@ public class CameraFragment extends Fragment
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
+            String timeStamp = new SimpleDateFormat("yy_MM_dd_HH_mm_ss_SSS").format(Calendar.getInstance().getTime());
+            String filename = String.format("pic_%s.jpg", timeStamp);
+            mFile = new File(getActivity().getExternalFilesDir(null), filename);
         }
 
         private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(getContext()) {

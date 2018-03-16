@@ -15,7 +15,7 @@
 */
 package com.example.android.camera2basic.tests;
 
-import com.example.android.camera2basic.*;
+import com.programming.android.sdu.smartcameralib.receiptcamera.CameraActivity;
 
 import android.test.ActivityInstrumentationTestCase2;
 

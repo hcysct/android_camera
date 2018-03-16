@@ -1,5 +1,6 @@
 package com.programming.android.sdu.smartcameralib.view;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.graphics.Path;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import org.opencv.core.Point;
@@ -29,6 +31,8 @@ public class QuadrilateralView extends View {
     private long squareUpdateTimestamp;
     private int animationMs = 200;
     private AnimatorSet animatorSet;
+    private ValueAnimator alphaAnimator;
+    private int squareAlpha = 255;
 
     class Quadrilateral extends Point{
         public double getX(){
@@ -39,8 +43,6 @@ public class QuadrilateralView extends View {
         }
     }
 
-
-
     public QuadrilateralView(Context context) {
         super(context);
 
@@ -49,7 +51,7 @@ public class QuadrilateralView extends View {
     public QuadrilateralView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         runnable.run();
-        //animatePoints();
+        //animateSquarePoints();
     }
 
     public QuadrilateralView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -79,6 +81,7 @@ public class QuadrilateralView extends View {
             linepaint.setStrokeWidth(5);
             linepaint.setPathEffect(null);
             linepaint.setColor(Color.GREEN);
+            linepaint.setAlpha(squareAlpha);
             linepaint.setStyle(Paint.Style.STROKE);
             canvas.drawPath(wallpath, linepaint);
         }
@@ -86,21 +89,21 @@ public class QuadrilateralView extends View {
 
     public synchronized void setSquarePoints(List<Point> lst, float scale) {
         lst = sortCorners(lst);
-        if(currentSquarePoints == null) {
-            this.currentSquarePoints = lst;
-            invalidate();
+        if(lst != null) {
+            if (currentSquarePoints == null) {
+                this.currentSquarePoints = lst;
+            }
+            this.newSquarePoints = lst;
+            this.scale = scale;
+            this.squareUpdateTimestamp = System.currentTimeMillis();
         }
-        this.newSquarePoints = lst;
-
-        this.scale = scale;
-        this.squareUpdateTimestamp = System.currentTimeMillis();
     }
 
     public void stopRunnables() {
         handler.removeCallbacks(runnable);
     }
 
-    private void animatePoints( List<Point> newPoints){
+    private void animateSquarePoints(List<Point> newPoints){
 
         if(currentSquarePoints == null || newPoints == null){
             cancelAnimation();
@@ -196,6 +199,41 @@ public class QuadrilateralView extends View {
                 .start();*/
     }
 
+    private void alphaAnimation(final boolean show){
+        if(alphaAnimator != null){
+            alphaAnimator.cancel();
+        }
+        alphaAnimator = ValueAnimator.ofInt( squareAlpha, show ? 255: 0);
+        alphaAnimator.setDuration(animationMs);
+        alphaAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {}
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if(!show){
+                   squareFadedOut();
+                }
+            }
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        });
+        alphaAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                squareAlpha = (int)animation.getAnimatedValue();
+                invalidate();
+            }
+        });
+        alphaAnimator.start();
+    }
+
+    private void squareFadedOut(){
+        currentSquarePoints = null;
+        newSquarePoints = null;
+    }
+
     private void cancelAnimation() {
         if(animatorSet != null){
             animatorSet.cancel();
@@ -218,12 +256,16 @@ public class QuadrilateralView extends View {
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
+            //hide if square coordinates haven't been updated in last 300 ms
             if (System.currentTimeMillis() - squareUpdateTimestamp > 300) {
-                currentSquarePoints = null;
-                newSquarePoints = null;
-                invalidate();
+                alphaAnimation(false);
             }
-            animatePoints(newSquarePoints);
+            else {
+                animateSquarePoints(newSquarePoints);
+                if(squareAlpha == 0){
+                    alphaAnimation(true);
+                }
+            }
             //invalidate();
             handler.postDelayed(this, 200);
         }
@@ -253,20 +295,48 @@ public class QuadrilateralView extends View {
                     bottomPoints.add(point);
                 }
             }
+            //find the lowest of top points and add it to the bottom points
+            if(topPoints .size() == 3 && bottomPoints.size() == 1){
+                Point temp = topPoints.get(0);
+                if(temp.y < topPoints.get(1).y ){
+                    temp = topPoints.get(1);
+                }
+                if(temp.y < topPoints.get(2).y ){
+                    temp = topPoints.get(2);
+                }
+                topPoints.remove(temp);
+                bottomPoints.add(temp);
+            }
+            //find the highest bottom point and add it to the top points
+            if(bottomPoints .size() == 3 && topPoints.size() == 1){
+                Point temp = bottomPoints.get(0);
+                if(temp.y > bottomPoints.get(1).y ){
+                    temp = bottomPoints.get(1);
+                }
+                if(temp.y > bottomPoints.get(2).y ){
+                    temp = bottomPoints.get(2);
+                }
+                bottomPoints.remove(temp);
+                topPoints.add(temp);
+            }
 
-            Point topLeft = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(1) : topPoints.get(0);
-            Point topRight = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(0) : topPoints.get(1);
-            Point bottomLeft = bottomPoints.get(0).x > bottomPoints.get(1).x ? bottomPoints.get(1) : bottomPoints.get(0);
-            Point bottomRight = bottomPoints.get(0).x > bottomPoints.get(1).x ? bottomPoints.get(0) : bottomPoints.get(1);
+            if(topPoints .size() == 2 && bottomPoints.size() == 2) {
 
+                Point topLeft = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(1) : topPoints.get(0);
+                Point topRight = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(0) : topPoints.get(1);
+                Point bottomLeft = bottomPoints.get(0).x > bottomPoints.get(1).x ? bottomPoints.get(1) : bottomPoints.get(0);
+                Point bottomRight = bottomPoints.get(0).x > bottomPoints.get(1).x ? bottomPoints.get(0) : bottomPoints.get(1);
 
-            List<Point> sortedPoints = new ArrayList<>();
-            sortedPoints.add(topLeft);
-            sortedPoints.add(topRight);
-            sortedPoints.add(bottomRight);
-            sortedPoints.add(bottomLeft);
-
-            return sortedPoints;
+                List<Point> sortedPoints = new ArrayList<>();
+                sortedPoints.add(topLeft);
+                sortedPoints.add(topRight);
+                sortedPoints.add(bottomRight);
+                sortedPoints.add(bottomLeft);
+                return sortedPoints;
+            }
+            else {
+                Log.i("QuadrilateralView", String.format("center: %s, p1: %s, p2: %s, p3: %s, p4: %s", center, points.get(0), points.get(1), points.get(2),points.get(3)));
+            }
         }
         return points;
     }

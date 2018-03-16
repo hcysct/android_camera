@@ -4,6 +4,7 @@
     <string name="request_permission">Camera permission needed.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="use">Use</string>
-    <string name="crop">Crop</string>
+    <string name="add">Add</string>
+    <string name="crop">Done</string>
     <string name="crop_error">Could not crop marked shape</string>
 </resources>

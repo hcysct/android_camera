@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Mar 13 11:25:55 CET 2018
+#Fri Mar 16 13:47:22 CET 2018
 7.path=lib/x86_64/libopencv_java3.so
 2.base=/Users/grzegorzbaczek/funProjects/camera/android-Camera2Basic-master/Application/build/intermediates/transforms/stripDebugSymbol/debug/0
 5.set=DEX

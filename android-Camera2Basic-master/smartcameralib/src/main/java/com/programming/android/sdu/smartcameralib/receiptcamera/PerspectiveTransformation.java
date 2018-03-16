@@ -83,6 +83,31 @@ public class PerspectiveTransformation {
             }
         }
 
+        //find the lowest of top points and add it to the bottom points
+        if(topPoints .size() == 3 && bottomPoints.size() == 1){
+            Point temp = topPoints.get(0);
+            if(temp.y < topPoints.get(1).y ){
+                temp = topPoints.get(1);
+            }
+            if(temp.y < topPoints.get(2).y ){
+                temp = topPoints.get(2);
+            }
+            topPoints.remove(temp);
+            bottomPoints.add(temp);
+        }
+        //find the highest bottom point and add it to the top points
+        if(bottomPoints .size() == 3 && topPoints.size() == 1){
+            Point temp = bottomPoints.get(0);
+            if(temp.y > bottomPoints.get(1).y ){
+                temp = bottomPoints.get(1);
+            }
+            if(temp.y > bottomPoints.get(2).y ){
+                temp = bottomPoints.get(2);
+            }
+            bottomPoints.remove(temp);
+            topPoints.add(temp);
+        }
+
         Point topLeft = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(1) : topPoints.get(0);
         Point topRight = topPoints.get(0).x > topPoints.get(1).x ? topPoints.get(0) : topPoints.get(1);
         Point bottomLeft = bottomPoints.get(0).x > bottomPoints.get(1).x ? bottomPoints.get(1) : bottomPoints.get(0);

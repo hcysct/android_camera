@@ -147,6 +147,10 @@ public class CropImageFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     public static long getFolderSize(File f) {
         long size = 0;
